@@ -1,0 +1,1105 @@
+<style>
+    @keyframes bblFadInOut {
+        0%, 80%, 100% { box-shadow: 0 2.5em 0 -1.3em }
+        40% { box-shadow: 0 2.5em 0 0 }
+    }
+
+    .loader,
+    .loader::before,
+    .loader::after {
+        border-radius: 50%;
+        width: 2.5em;
+        height: 2.5em;
+        animation-fill-mode: both;
+        animation: bblFadInOut 1.8s infinite ease-in-out;
+    }
+
+    .loader {
+        color: #FFF;
+        font-size: 7px;
+        position: relative;
+        text-indent: -9999em;
+        transform: translateZ(0);
+        animation-delay: -0.16s;
+    }
+
+    .loader::before,
+    .loader::after {
+        content: '';
+        position: absolute;
+        top: 0;
+    }
+
+    .loader::before {
+        left: -3.5em;
+        animation-delay: -0.32s;
+    }
+
+    .loader::after {
+        left: 3.5em;
+    }
+
+    .hide {
+        display: none !important;
+    }
+
+    .ta-center {
+        text-align: center;
+    }
+
+    .newsletter {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    .newsletter * {
+        font-family: 'TT Norms Pro', sans-serif;
+        line-height: 1.5;
+        letter-spacing: normal;
+        vertical-align: baseline;
+        text-transform: none;
+        text-rendering: optimizeLegibility;
+        color: #424242;
+    }
+
+    .newsletter a,
+    .newsletter a:hover,
+    .newsletter a:active,
+    .newsletter a:focus {
+        outline: 0;
+        text-decoration: none;
+        color: #feebd0;
+    }
+
+    .newsletter h1,
+    .newsletter h2,
+    .newsletter h3,
+    .newsletter h4,
+    .newsletter h5,
+    .newsletter h6,
+    .newsletter p,
+    .newsletter fieldset,
+    .newsletter form {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    .newsletter form.newsletter-form {
+        padding-top: 50px;
+    }
+
+    .newsletter-form-page {
+        background-size: 100%;
+        background-position-x: center;
+        background-position-y: top;
+        background-repeat: no-repeat;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        color: #fff;
+    }
+
+    .newsletter-form-container {
+        max-width: 80%;
+        width: auto;
+        background-color: #fff;
+        margin: 200px auto;
+        height: auto;
+        padding: 60px 80px;
+        position: relative;
+    }
+
+    .newsletter-section .newsletter-form-header {
+        padding: 0;
+        font-weight: bold;
+        font-size: 32px;
+        text-align: center;
+        color: #3f000b;
+    }
+
+    .newsletter-section .newsletter-form-subheader {
+        padding: 0;
+        font-weight: normal;
+        font-size: 17px;
+        text-align: center;
+        color: #3f000b;
+        margin-bottom: 10px;
+    }
+
+    .newsletter-section .newsletter-form-subheader small {
+        color: #3f000b;
+    }
+
+    .newsletter-form-page p {
+        font-size: 18px;
+        line-height: 24px;
+        text-align: center;
+    }
+
+    .newsletter-form-page a {
+        color: #3f000b;
+        border-bottom-color: #3f000b;
+    }
+
+    .newsletter-form .form-field {
+        margin-bottom: 2.4rem;
+        margin-top: 0;
+    }
+
+    .newsletter-form .form-field label {
+        margin-left: 20px;
+    }
+
+    .newsletter-form .field-wrapper label {
+        font-weight: 700;
+    }
+
+    .newsletter-form span.imp {
+        color: #333;
+    }
+
+    .newsletter-form label {
+        margin-bottom: 8px;
+        display: inline-block;
+        color: #333;
+        font-size: 1.5rem;
+    }
+
+    .newsletter-form label a {
+        color: #3f000b;
+    }
+
+    .newsletter-form label a:hover,
+    .newsletter-form label a:active,
+    .newsletter-form label a:focus {
+        outline: 0;
+        text-decoration: underline dotted #3f000b;
+        color: #3f000b;
+    }
+
+    .newsletter-form fieldset {
+        display: flex;
+        flex-wrap: wrap;
+        border: 0;
+    }
+
+    .newsletter-form fieldset legend,
+    .newsletter-form fieldset label {
+        line-height: 24px;
+        border-bottom: 0;
+        color: #333;
+    }
+
+    .newsletter-form fieldset div input {
+        margin: 0 10px 0 0;
+    }
+
+    .newsletter-form fieldset.check-full div {
+        margin: 0;
+    }
+
+    .newsletter-form .input-container {
+        position: relative;
+    }
+
+    .newsletter-form fieldset.check-full .input-container {
+        width: 100%;
+        margin: 0;
+    }
+
+    .newsletter-form fieldset.check-full legend {
+        margin-bottom: 10px;
+    }
+
+    .newsletter-form .input-container input[type='text'] {
+        border: 2px solid #cfcfcf;
+        font-size: 18px;
+        padding: 5px 10px;
+        color: #3f000b;
+        width: 100%;
+        border-radius: 6px;
+        min-height: 50px;
+        letter-spacing: 0.03em;
+        font-weight: 400;
+        appearance: none;
+        outline: none;
+    }
+
+    .newsletter-form .input-container.has-icon input[type='text'] {
+        padding-left: 42px;
+    }
+
+    .newsletter-form input[type="text"]:focus-visible {
+        outline: 1px solid #3c131c;
+        border-color: #3c131c;
+    }
+
+    .newsletter-form input[type='checkbox'],
+    .newsletter-form input[type='radio'] {
+        position: relative;
+        float: left;
+        background-color: #fff;
+        height: 20px;
+        width: 20px;
+        content: '';
+        display: block;
+        border: 2px solid #cfcfcf;
+        border-radius: 3px;
+        margin-right: 10px;
+        appearance: none;
+        outline: none;
+        padding: 0;
+    }
+
+    .newsletter-form input[type="checkbox"]:focus-visible,
+    .newsletter-form input[type="radio"]:focus-visible {
+        outline: 1px solid #3c131c;
+        border-color: #3c131c;
+    }
+
+    .newsletter-form input[type="checkbox"]:checked,
+    .newsletter-form input[type="radio"]:checked {
+        border-color: #3c131c;
+        background-color: #3c131c;
+    }
+
+    .newsletter-form input[type="checkbox"]:checked::after,
+    .newsletter-form input[type="radio"]:checked::after {
+        content: "✔";
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .newsletter-form input[type='checkbox'] + label,
+    .newsletter-form input[type='radio'] + label {
+        text-transform: none;
+        font-size: 1.6rem;
+        font-weight: 500;
+        display: block;
+        width: calc(100% - 27px);
+        margin-left: 27px;
+        position: relative;
+        top: -3px;
+    }
+
+    .newsletter-form input::placeholder {
+        color: #333;
+        font-weight: normal;
+        font-size: 14px;
+    }
+
+    .newsletter-form button {
+        position: relative;
+        width: 100%;
+        max-width: 300px;
+        margin: 15px auto 0;
+        padding: 16px 36px;
+        border-radius: 5rem;
+        border: 0;
+        background-color: #007bbd;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    .newsletter-form button,
+    .newsletter-form button span {
+        text-align: center;
+        font-size: 2.1rem;
+        font-weight: 400;
+        color: #fff;
+    }
+
+    .newsletter-form input:disabled,
+    .newsletter-form button:disabled {
+        opacity: 50%;
+        cursor: default;
+        user-select: none;
+    }
+
+    .newsletter-form button:not(:disabled):hover,
+    .newsletter-form button:not(:disabled):active,
+    .newsletter-form button:not(:disabled):focus {
+        filter: brightness(1.15);
+    }
+
+    .newsletter-form button:not(:disabled):focus-visible {
+        outline: 3px solid #3c131c;
+    }
+
+    .newsletter-form button span.loader {
+        position: absolute;
+        z-index: 0;
+        top: calc(50% - 2.5em);
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 0.8rem;
+    }
+
+    .newsletter-form button span.label,
+    .newsletter-form.loading button span.loader {
+        visibility: visible;
+    }
+
+    .newsletter-form button span.loader,
+    .newsletter-form.loading button span.label {
+        visibility: hidden;
+    }
+
+    .newsletter-form .form-row {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        gap: 2.5rem;
+    }
+
+    .newsletter-form .form-row .form-col-50 {
+        flex: none;
+        flex-grow: 0;
+        width: 50%;
+        height: auto;
+        padding: 0;
+    }
+
+    .newsletter-form .form-row .form-col-33 {
+        flex: none;
+        flex-grow: 0;
+        width: 33.33%;
+        height: auto;
+        padding: 0;
+    }
+
+    .newsletter-form .form-row .form-col-25 {
+        flex: none;
+        flex-grow: 0;
+        width: 25%;
+        height: auto;
+        padding: 0;
+    }
+
+    .newsletter-form .form-row .form-col-10 {
+        flex: none;
+        flex-grow: 0;
+        width: 10%;
+        height: auto;
+        padding: 0;
+    }
+
+    .newsletter-form  {
+        position: relative;
+    }
+
+    .newsletter-form .input-container i {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #333;
+    }
+
+    .newsletter-form .error {
+        display: block;
+        width: 100%;
+        color: #eb0029;
+        font-size: 1.3rem;
+        font-style: italic;
+        letter-spacing: 0.01em;
+        visibility: hidden;
+    }
+
+    .newsletter-form .field-wrapper .error {
+        position: absolute;
+        bottom: -20px;
+        left: 10px;
+        width: calc(100% - 10px);
+    }
+
+    .newsletter-form .check-full .error {
+        float: left;
+        clear: left;
+        width: calc(100% - 27px);
+        margin-left: 27px;
+        margin-top: -8px;
+    }
+
+    .newsletter-form .input-container input.input-error:not(:checked) {
+        color: #eb0029;
+        border-color: #eb0029;
+    }
+
+    .newsletter-form .input-container input.input-error:not(:checked):focus-visible {
+        outline-color: #eb0029;
+    }
+
+    .newsletter-form .input-container input.input-error ~ .error {
+        visibility: visible;
+    }
+
+    .newsletter-form .input-container input.input-error ~ i {
+        color: #eb0029;
+    }
+
+    .newsletter-100 {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding-left: 0;
+    }
+
+    .newsletter-50 {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        padding-left: 0;
+    }
+
+    .newsletter-100 div:last-child input {
+        margin-right: 0;
+    }
+
+    .field-wrapper {
+        flex-direction: column;
+    }
+
+    .field-divider {
+        width: 100%;
+        margin-top: 10px;
+        border-top: 1px solid #cfcfcf;
+        height: 25px;
+    }
+
+    @media screen and (max-width: 600px) {
+        .newsletter-100 {
+            flex-direction: column;
+        }
+
+        .newsletter-50 {
+            width: 100%;
+        }
+
+        .newsletter-form-container {
+            max-width: 100%;
+            padding: 60px 20px;
+        }
+
+        .newsletter-form .form-field {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    @media screen and (max-width: 1200px) {
+        .newsletter-100 {
+            flex-direction: column;
+        }
+
+        .newsletter-50 {
+            width: 100%;
+        }
+
+        .newsletter-form-container {
+            max-width: 100%;
+        }
+
+        .newsletter-form .form-field {
+            margin-bottom: 10px;
+        }
+
+        .newsletter-form .input-container {
+            margin-bottom: 20px;
+        }
+    }
+
+    .success-wrap {
+        display: flex;
+        align-items: center;
+        padding: 25px 35px;
+    }
+
+    .success-wrap .success-msg h2 {
+        font-family: 'Gazpacho', serif;
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 40px;
+        text-align: left;
+        color: #3c131c;
+    }
+
+    .success-wrap .success-msg-wrap {
+        width: 60%;
+        text-align: center;
+    }
+
+    .success-wrap .success-msg-wrap p {
+        color: #3c131c;
+        font-size: 18px;
+        line-height: 30px;
+        text-align: center;
+        text-wrap: nowrap;
+        font-family: 'TT Norms Pro', sans-serif;
+        font-weight: bold;
+    }
+
+    @media screen and (max-width: 780px) {
+        .success-wrap {
+            display: block;
+            padding: 10px 10px 40px 10px;
+        }
+
+        .success-wrap .success-msg h2 {
+            font-size: 24px;
+            line-height: 30px;
+            margin-bottom: 15px;
+        }
+
+        .success-wrap .success-msg-wrap {
+            width: 100%;
+            text-align: left;
+            padding: 0 20px;
+        }
+
+        .success-wrap .success-msg-wrap p {
+            font-size: 16px;
+            line-height: 20px;
+            margin-bottom: 15px;
+        }
+    }
+</style>
+
+<div class="newsletter">
+    <div class="newsletter-form-page" style="background-image: url('https://www.hersheyfoodservice.com/content/dam/hershey-foodservice/images/patterns/pattern-candy-and-snack-background.jpg');">
+        <div class="newsletter-form-container">
+            <section id="newsletter_register_form" class="newsletter-section">
+
+                <h1 class="newsletter-form-header"> Food Service Newsletter </h1>
+                <h5 class="newsletter-form-subheader">
+                    Be the first to hear about new Hershey Foodservice items!
+                    Sign up takes just a few seconds.
+                    <br/>
+                    <small>Please note, visitors from countries in the EU/EEA should not use this form.</small>
+                </h5>
+
+                <form name="ProfileForm"
+                      action="https://link.thehersheycompany.com/u/register.php"
+                      method="get"
+                      class="newsletter-form">
+
+                    <input type=hidden name="CID" value="885566726">
+                    <input type=hidden name="SID" value="">
+                    <input type=hidden name="UID" value="">
+                    <input type=hidden name="f" value="603">
+                    <input type=hidden name="p" value="2">
+                    <input type=hidden name="a" value="r">
+                    <input type=hidden name="el" value="">
+                    <input type=hidden name="llid" value="">
+                    <input type=hidden name="c" value="">
+                    <input type=hidden name="counted" value="">
+                    <input type=hidden name="RID" value="">
+                    <input type=hidden name="mailnow" value="">
+
+                    <!-- Origin Site Source Placeholder -->
+                    <input type="hidden" name="inp_11419" value="">
+
+                    <div class="newsletter-100">
+                        <div class="newsletter-50 field-wrapper col-md-6 col-xs-12 form-field">
+                            <label for="inp_1">First Name <span class="imp">*</span></label>
+                            <div class="input-container has-icon">
+                                <input type="text" id="inp_1" name="inp_1" maxlength="60" tabindex="1"
+                                       placeholder="Enter Your First Name"/>
+                                <span class="error">Please provide your first name.</span>
+                                <i class="fal fa-user" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="newsletter-50 field-wrapper col-md-6 col-xs-12 form-field">
+                            <label for="inp_2">Last Name <span class="imp">*</span></label>
+                            <div class="input-container has-icon">
+                                <input type="text" id="inp_2" name="inp_2" maxlength="60" tabindex="2"
+                                       placeholder="Enter Your Last Name"/>
+                                <span class="error">Please provide your last name.</span>
+                                <i class="fal fa-user" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="newsletter-100 field-wrapper col-xs-12 form-field col-md-12">
+                        <label for="inp_3">Email <span class="imp">*</span></label>
+                        <div class="input-container has-icon">
+                            <input type="text" id="inp_3" name="inp_3" maxlength="255" tabindex="3"
+                                   placeholder="Enter Your Email"/>
+                            <span class="error">Please provide a valid email address.</span>
+                            <i class="fal fa-envelope" aria-hidden="true"></i>
+                        </div>
+                    </div>
+
+                    <div class="newsletter-100">
+                        <div class="newsletter-50 field-wrapper col-md-6 col-xs-12 form-field">
+                            <label for="inp_18">Company Name <span class="imp">*</span></label>
+                            <div class="input-container has-icon">
+                                <input type="text" id="inp_18" name="inp_18" maxlength="60" tabindex="4"
+                                       placeholder="Enter Your Company Name"/>
+                                <span class="error">Please provide your company name.</span>
+                                <i class="fal fa-briefcase" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="newsletter-50 field-wrapper col-md-6 col-xs-12 form-field">
+                            <label for="inp_15">Phone Number <span class="imp">*</span></label>
+                            <div class="input-container has-icon">
+                                <input type="text" id="inp_15" name="inp_15" maxlength="60" tabindex="5"
+                                       placeholder="Enter Your Phone Number"/>
+                                <span class="error">Please provide your phone number.</span>
+                                <i class="fal fa-phone" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field-divider"></div>
+
+                    <fieldset class="check-full">
+                        <legend>
+                            Which most closely describes your business?
+                            <span class="imp">*</span>
+                        </legend>
+                        <div class="input-container">
+                            <div class="form-row">
+                                <div class="form-col-33">
+                                    <div class="input-container">
+                                        <input type="radio" id="inp_11673_1" tabindex="6" name="inp_11673" value="1">
+                                        <label for="inp_11673_1">Independent owner</label>
+                                    </div>
+                                </div>
+                                <div class="form-col-33">
+                                    <div class="input-container">
+                                        <input type="radio" id="inp_11673_2" tabindex="6" name="inp_11673" value="2">
+                                        <label for="inp_11673_2">Chef</label>
+                                    </div>
+                                </div>
+                                <div class="form-col-33">
+                                    <div class="input-container">
+                                        <input type="radio" id="inp_11673_3" tabindex="6" name="inp_11673" value="3">
+                                        <label for="inp_11673_3">Purchasing decision maker</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-col-50">
+                                    <label for="inp_11674">Other</label>
+                                    <input type="text" id="inp_11674" tabindex="7" name="inp_11674" />
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <br/>
+                    <div class="field-divider"></div>
+
+                    <div class="newsletter-100 field-wrapper col-xs-12 form-field col-md-12">
+                        <label for="inp_11675">How often do you purchase from a manufacturer directly? <span class="imp">*</span></label>
+                        <div class="input-container has-icon">
+                            <input type="text" id="inp_11675" name="inp_11675" maxlength="255" tabindex="8"
+                                   placeholder="Enter Your often purchase."/>
+                            <span class="error">Please provide a valid often purchase.</span>
+                            <i class="fal fa-cart-shopping" aria-hidden="true"></i>
+                        </div>
+                    </div>
+
+                    <div class="field-divider"></div>
+
+                    <fieldset class="check-full">
+                        <legend>
+                            Have you purchased online from Hershey before?
+                            <span class="imp">*</span>
+                        </legend>
+                        <div class="input-container">
+                            <div class="form-row">
+                                <div class="form-col-10">
+                                    <div class="input-container">
+                                        <input type="radio" id="inp_11676_1" name="inp_11676" value="1" tabindex="9" autocomplete="off">
+                                        <label for="inp_11676_1">Yes</label>
+                                    </div>
+                                </div>
+                                <div class="form-col-10">
+                                    <div class="input-container">
+                                        <input type="radio" id="inp_11676_2" name="inp_11676" value="2" tabindex="9" autocomplete="off">
+                                        <label for="inp_11676_2">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="field-divider"></div>
+
+                    <fieldset class="check-full">
+                        <div class="input-container">
+                            <input type="checkbox" id="optin" name="optin" value="y" tabindex="10" autocomplete="off">
+                            <label for="optin">
+                                I’d like to receive product news, exciting offers, personalized content,
+                                services and more from The Hershey Company and its affiliates and partners,
+                                including through direct mail, digital media or digital communications.
+                                For further information, please refer to our <a
+                                    href="https://www.thehersheycompany.com/en_us/home/privacy-policy.html"
+                                    target="self"
+                                    tabindex="11"
+                                    rel="noopener noreferrer">Privacy Policy</a>
+                                <span class="imp">*</span>
+                            </label>
+                            <span class="error">Please accept the terms and conditions to continue.</span>
+                        </div>
+                    </fieldset>
+
+                    <div class="newsletter-100">
+                        <div class="col-sm-12 col-xs-12 ta-center">
+                            <button type="submit" tabindex="12" aria-label="YES PLEASE!">
+                                <span class="label">YES PLEASE!</span>
+                                <span class="loader"></span>
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+            </section>
+            <section id="newsletter_thank_you_page" class="newsletter-section hide">
+                <div class="success-wrap">
+                    <div class="success-msg-wrap">
+                        <p>Thanks for Subscribing</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+<script language="javascript">
+    function get_inputs(name) {
+        return document.querySelectorAll(`form[name=ProfileForm] input[name=${name}]`);
+    }
+
+    function get_input(name) {
+        return get_inputs(name).item(0);
+    }
+
+    function required_input_check(name, fullCheck = true, customValidator = null) {
+        const inputs = get_inputs(name);
+        const input = get_input(name);
+
+        // Clear all error states
+        inputs.forEach((input) => {
+            input.classList.remove('input-error');
+        });
+
+        // Handle text inputs
+        if (
+            (input.type === 'text' && !input.value) ||
+            (input.type === 'email' && !input.value) ||
+            (input.type === 'password' && !input.value) ||
+            (input.type === 'tel' && !input.value) ||
+            (input.type === 'url' && !input.value) ||
+            (input.type === 'search' && !input.value)
+        ) {
+            input.classList.add('input-error');
+            return false;
+
+        // Handle radio/checkbox groups
+        } else if (
+            (input.type === 'checkbox' && !input.checked) ||
+            (input.type === 'radio' && !input.checked)
+        ) {
+
+            let atLeastOneChecked = false;
+            inputs.forEach((input) => {
+                if (input.checked) {
+                    atLeastOneChecked = true;
+                }
+            });
+
+            if (!atLeastOneChecked) {
+                inputs.forEach((input) => {
+                    input.classList.add('input-error');
+                });
+                return false;
+            }
+        }
+
+        if (!fullCheck) {
+            return true;
+        }
+
+        // Custom validation (email, phone, etc.)
+        if (customValidator && typeof customValidator === 'function') {
+            const isValid = customValidator(input.value);
+            if (!isValid) {
+                input.classList.add('input-error');
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    // https://stackoverflow.com/a/46181
+    function email_validator(value) {
+        return String(value)
+            .toLowerCase()
+            .trim()
+            .match(
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            );
+    }
+
+    // https://regex101.com/r/cFEhad/1
+    function phone_validator(value) {
+        return String(value)
+            .toLowerCase()
+            .trim()
+            .match(
+                /^(\+?1)?\s*(\d{3}|\(\d{3}\))[\s\-]?\d{3}[\s\-]?\d{4}$/
+            );
+    }
+
+    function is_1_valid() { return required_input_check('inp_1'); }
+    function is_2_valid() { return required_input_check('inp_2'); }
+    function is_3_valid(fullCheck = true) { return required_input_check('inp_3', fullCheck, email_validator); }
+    function is_15_valid(fullCheck = true) { return required_input_check('inp_15', fullCheck, phone_validator); }
+    function is_18_valid() { return required_input_check('inp_18'); }
+    function is_11673_valid() { return required_input_check('inp_11673'); }
+    function is_11675_valid() { return required_input_check('inp_11675'); }
+    function is_11676_valid() { return required_input_check('inp_11676'); }
+
+    function is_optin_valid() {
+        const input = document.querySelectorAll('form[name=ProfileForm] input[name=optin]').item(0);
+        input.classList.remove('input-error');
+        if (!input.checked) {
+            input.classList.add('input-error');
+            return false;
+        }
+
+        return true;
+    }
+
+    function checkInputs() {
+        let isValid = true;
+        isValid = is_1_valid() && isValid; // First Name *
+        isValid = is_2_valid() && isValid; // Last Name *
+        isValid = is_3_valid() && isValid; // Email *
+        isValid = is_15_valid() && isValid; // Phone *
+        isValid = is_18_valid() && isValid; // Company Name *
+        isValid = is_11673_valid() && isValid; // Business Type *
+        isValid = is_11675_valid() && isValid; // Manufacturer Purchase Frequency *
+        isValid = is_11676_valid() && isValid; // Existing Hershey Purchase *
+        isValid = is_optin_valid() && isValid; // Terms Checkbox *
+        return isValid;
+    }
+
+    function populateHiddenFields() {
+        const form = document.getElementsByName('ProfileForm').item(0);
+        if (form instanceof HTMLFormElement) {
+            // Origin Site Source Placeholder
+            const inputElm = form.querySelectorAll('input[name=inp_11419]').item(0);
+            const urlParams = new URLSearchParams(window.location.search);
+            const newsbkg = urlParams.get('newsbkg');
+            inputElm.value = (newsbkg && newsbkg.length > 0 && inputElm.value.length === 0) ? newsbkg : 'hersheyglobal';
+        }
+    }
+
+    function submitForm() {
+        const form = document.getElementsByName('ProfileForm').item(0);
+        if (form instanceof HTMLFormElement) {
+            form.classList.add('loading');
+            populateHiddenFields();
+            const data = new FormData(form);
+            const dataObject = Object.fromEntries(data);
+            const urlParams = new URLSearchParams(dataObject).toString();
+            const url = `${form.action}?${urlParams}`;
+            disableFormInputs();
+            fetch(url, {
+                method: form.method,
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            }).then(() => {
+                scrollToFormTop();
+                setTimeout(() => { onSubmitComplete(); }, 500);
+            }).catch(error => {
+                enableFormInputs();
+                onSubmitError(error);
+            }).finally(() => {
+                form.classList.remove('loading');
+            });
+        }
+    }
+
+    function getOffsetTop(element) {
+        let offsetTop = 0;
+        while (element) {
+            offsetTop += element.offsetTop;
+            element = element.offsetParent;
+        }
+
+        offsetTop -= 100;
+        if (offsetTop < 0) offsetTop = 0;
+
+        return offsetTop;
+    }
+
+    function scrollToFormTop() {
+        const formContainer = document.getElementById('newsletter_register_form');
+        let offset = getOffsetTop(formContainer) - 50;
+        if (offset < 0) offset = 0;
+        window.scrollTo({
+            top: offset,
+            behavior: 'smooth',
+        });
+    }
+
+    function scrollToFirstInputError() {
+        const form = document.getElementsByName('ProfileForm').item(0);
+        if (form instanceof HTMLFormElement) {
+            const elements = form.querySelectorAll('input.input-error');
+            if (elements.length > 0) {
+                const element = elements.item(0);
+                element.focus();
+                window.scrollTo({
+                    top: getOffsetTop(element),
+                    behavior: 'smooth',
+                });
+            }
+        }
+    }
+
+    function enableFormInputs() {
+        const form = document.getElementsByName('ProfileForm').item(0);
+        if (form instanceof HTMLFormElement) {
+            const elements = form.elements;
+            for (let i = 0; i < elements.length; i++) {
+                elements[i].disabled = false;
+            }
+        }
+    }
+
+    function disableFormInputs() {
+        const form = document.getElementsByName('ProfileForm').item(0);
+        if (form instanceof HTMLFormElement) {
+            const elements = form.elements;
+            for (let i = 0; i < elements.length; i++) {
+                elements[i].disabled = true;
+            }
+        }
+    }
+
+    function onSubmitComplete() {
+        document.getElementById('newsletter_register_form').classList.add('hide');
+        document.getElementById('newsletter_thank_you_page').classList.remove('hide');
+    }
+
+    function onSubmitError(error) {
+        console.error('Form submission failed:', error);
+    }
+
+    function checkLocalStorage() {
+        const value = localStorage.getItem('email');
+        if (value) {
+            const input = get_input('inp_3');
+            if (input instanceof HTMLInputElement) {
+                input.value = value;
+            }
+        }
+    }
+
+    function bindFormSubmitEvent() {
+        const form = document.getElementsByName('ProfileForm').item(0);
+        if (form instanceof HTMLFormElement) {
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                if (checkInputs()) submitForm(form);
+                else scrollToFirstInputError();
+            });
+        }
+    }
+
+    function bindInputChangeEvents() {
+        let previousValues = [];
+
+        const form = document.getElementsByName('ProfileForm').item(0);
+        const inputs = form.getElementsByTagName('input');
+        for (let i = 0; i < inputs.length; i++) {
+            const input = inputs[i];
+            if (!input || input.type === 'hidden') {
+                continue;
+            }
+
+            input.addEventListener('focus', (event) => {
+                previousValues[i] = event.target.value;
+            });
+
+            input.addEventListener('keyup', (event) => {
+                const hasError = event.target.classList.contains('input-error');
+                const currentValue = event.target.value;
+                const previousValue = previousValues[i];
+                const valueChanged = currentValue !== previousValue;
+                if (valueChanged || hasError) {
+                    switch (event.target.name) {
+                        case 'inp_1': is_1_valid(); break;
+                        case 'inp_2': is_2_valid(); break;
+                        case 'inp_3': is_3_valid(hasError); break;
+                        case 'inp_15': is_15_valid(hasError); break;
+                        case 'inp_18': is_18_valid(); break;
+                        case 'inp_11673': is_11673_valid(); break;
+                        case 'inp_11675': is_11675_valid(); break;
+                        case 'inp_11676': is_11676_valid(); break;
+                        case 'optin': is_optin_valid(); break;
+                    }
+                }
+            });
+
+            input.addEventListener('change', (event) => {
+                switch (event.target.name) {
+                    case 'inp_1': is_1_valid(); break;
+                    case 'inp_2': is_2_valid(); break;
+                    case 'inp_3': is_3_valid(); break;
+                    case 'inp_15': is_15_valid(); break;
+                    case 'inp_18': is_18_valid(); break;
+                    case 'inp_11673': is_11673_valid(); break;
+                    case 'inp_11675': is_11675_valid(); break;
+                    case 'inp_11676': is_11676_valid(); break;
+                    case 'optin': is_optin_valid(); break;
+                }
+            });
+        }
+    }
+</script>
+
+<script language="javascript">
+    let multiFields = [];
+    let dateFields = [];
+    window.multiFields = multiFields;
+    window.dateFields = dateFields;
+</script>
+
+<script language="javascript" src="https://l.hersheys.com/u/nprefill.js" type="text/javascript"></script>
+<script language="javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+        checkLocalStorage();
+        bindFormSubmitEvent();
+        bindInputChangeEvents();
+        // see: https://l.hersheys.com/u/nprefill.js
+        if (typeof window['preFill'] === 'function') {
+            window['preFill']();
+        }
+    });
+</script>
+
+<script id="font-awesome" defer src="https://kit.fontawesome.com/679e5f177e.js" data-auto-replace-svg="nest"></script>
