@@ -44,13 +44,13 @@
 
 <style>
 
-    #obNewsletterPopup.ob-newsletter-popup-container *,
-    #obNewsletterPopup.ob-newsletter-popup-container *::before,
-    #obNewsletterPopup.ob-newsletter-popup-container *::after {
+    #fulfilNewsletterPopup.ob-newsletter-popup-container *,
+    #fulfilNewsletterPopup.ob-newsletter-popup-container *::before,
+    #fulfilNewsletterPopup.ob-newsletter-popup-container *::after {
         box-sizing: border-box;
     }
 
-    #obNewsletterPopup.ob-newsletter-popup-container {
+    #fulfilNewsletterPopup.ob-newsletter-popup-container {
         z-index: -1;
         position: fixed;
         top: -999rem;
@@ -64,7 +64,7 @@
         transition: opacity 500ms ease-out;
     }
 
-    #obNewsletterPopup.ob-newsletter-popup-container.show-popup-now {
+    #fulfilNewsletterPopup.ob-newsletter-popup-container.show-popup-now {
         z-index: 999;
         position: fixed;
         top: 0;
@@ -75,7 +75,7 @@
         opacity: 1;
     }
 
-    #obNewsletterPopup .ob-newsletter-popup-inner {
+    #fulfilNewsletterPopup .ob-newsletter-popup-inner {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -88,19 +88,20 @@
         overflow: hidden;
     }
 
-    #obNewsletterPopup .ob-newsletter-popup-side-l {
+    #fulfilNewsletterPopup .ob-newsletter-popup-side-l {
         position: relative;
         width: 420px;
         flex-shrink: 0;
+        background: rgb(247, 191, 10);
     }
 
-    #obNewsletterPopup .ob-newsletter-popup-side-r {
+    #fulfilNewsletterPopup .ob-newsletter-popup-side-r {
         position: relative;
         flex: 1;
         min-width: 0;
     }
 
-    #obNewsletterPopup .ob-popup-bg {
+    #fulfilNewsletterPopup .ob-popup-bg {
         position: absolute;
         top: 0;
         left: 0;
@@ -114,7 +115,7 @@
         object-fit: cover;
     }
 
-    #obNewsletterPopup .ob-popup-logo {
+    #fulfilNewsletterPopup .ob-popup-logo {
         width: 150px;
         height: auto;
         display: block;
@@ -124,7 +125,7 @@
         border: none;
     }
 
-    #obNewsletterPopup .ob-popup-content {
+    #fulfilNewsletterPopup .ob-popup-content {
         width: 100%;
         padding: 40px;
         font-family: 'TT Norms Pro', sans-serif;
@@ -133,32 +134,34 @@
         text-align: center;
     }
 
-    #obNewsletterPopup .ob-popup-heading {
-        font-size: 4rem;
+    #fulfilNewsletterPopup .ob-popup-heading {
+        font-size: 3.5rem;
+        font-weight: 900;
+        text-transform: uppercase;
         line-height: 1.32;
         color: rgb(17, 17, 17);
         margin: 24px 0 15px 0;
     }
 
-    #obNewsletterPopup .ob-popup-subheading {
-        font-size: 2rem;
+    #fulfilNewsletterPopup .ob-popup-subheading {
+        font-size: 1.6rem;
         line-height: 1.32;
         color: rgb(17, 17, 17);
         margin: 15px 0;
     }
 
-    #obNewsletterPopup .ob-popup-subheading span {
+    #fulfilNewsletterPopup .ob-popup-subheading span {
         display: block;
     }
 
-    #obNewsletterPopup .ob-popup-form-title {
+    #fulfilNewsletterPopup .ob-popup-form-title {
         font-size: 1.5rem;
         line-height: 1.32;
         color: rgb(17, 17, 17);
         margin: 15px 0;
     }
 
-    #obNewsletterPopup .ob-popup-close-btn {
+    #fulfilNewsletterPopup .ob-popup-close-btn {
         z-index: 10;
         position: absolute;
         top: 10px;
@@ -176,7 +179,7 @@
         cursor: pointer;
     }
 
-    #obNewsletterPopup .ob-popup-close-btn svg {
+    #fulfilNewsletterPopup .ob-popup-close-btn svg {
         transition: fill 0.2s;
         display: block;
         object-fit: contain;
@@ -187,7 +190,7 @@
         fill: currentcolor;
     }
 
-    #obNewsletterPopup .ob-popup-close-btn:hover {
+    #fulfilNewsletterPopup .ob-popup-close-btn:hover {
         color: white;
     }
 
@@ -196,9 +199,9 @@
         40% { box-shadow: 0 2.5em 0 0 }
     }
 
-    #obNewsletterPopup form.newsletter-form .loader,
-    #obNewsletterPopup form.newsletter-form .loader::before,
-    #obNewsletterPopup form.newsletter-form .loader::after {
+    #fulfilNewsletterPopup form.newsletter-form .loader,
+    #fulfilNewsletterPopup form.newsletter-form .loader::before,
+    #fulfilNewsletterPopup form.newsletter-form .loader::after {
         border-radius: 50%;
         width: 2.5em;
         height: 2.5em;
@@ -206,7 +209,7 @@
         animation: bblFadInOut 1.8s infinite ease-in-out;
     }
 
-    #obNewsletterPopup form.newsletter-form .loader {
+    #fulfilNewsletterPopup form.newsletter-form .loader {
         color: #fff;
         font-size: 7px;
         position: relative;
@@ -215,78 +218,78 @@
         animation-delay: -0.16s;
     }
 
-    #obNewsletterPopup form.newsletter-form .loader::before,
-    #obNewsletterPopup form.newsletter-form .loader::after {
+    #fulfilNewsletterPopup form.newsletter-form .loader::before,
+    #fulfilNewsletterPopup form.newsletter-form .loader::after {
         content: '';
         position: absolute;
         top: 0;
     }
 
-    #obNewsletterPopup form.newsletter-form .loader::before {
+    #fulfilNewsletterPopup form.newsletter-form .loader::before {
         left: -3.5em;
         animation-delay: -0.32s;
     }
 
-    #obNewsletterPopup form.newsletter-form .loader::after {
+    #fulfilNewsletterPopup form.newsletter-form .loader::after {
         left: 3.5em;
     }
 
-    #obNewsletterPopup.hide,
-    #obNewsletterPopup.hide *,
-    #obNewsletterPopup .hide,
-    #obNewsletterPopup .hide * {
+    #fulfilNewsletterPopup.hide,
+    #fulfilNewsletterPopup.hide *,
+    #fulfilNewsletterPopup .hide,
+    #fulfilNewsletterPopup .hide * {
         display: none !important;
     }
 
-    #obNewsletterPopup form.newsletter-form  {
+    #fulfilNewsletterPopup form.newsletter-form  {
         position: relative;
         text-align: left;
         padding: 10px 0;
         margin: 0;
     }
 
-    #obNewsletterPopup form.newsletter-form .form-field {
+    #fulfilNewsletterPopup form.newsletter-form .form-field {
         margin-bottom: 10px;
         margin-top: 0;
     }
 
-    #obNewsletterPopup form.newsletter-form .form-field label {
+    #fulfilNewsletterPopup form.newsletter-form .form-field label {
         margin-left: 0;
     }
 
-    #obNewsletterPopup form.newsletter-form .field-wrapper {
+    #fulfilNewsletterPopup form.newsletter-form .field-wrapper {
         flex-direction: column;
     }
 
-    #obNewsletterPopup form.newsletter-form .field-wrapper label {
+    #fulfilNewsletterPopup form.newsletter-form .field-wrapper label {
         font-weight: 700;
     }
 
-    #obNewsletterPopup form.newsletter-form span.imp {
+    #fulfilNewsletterPopup form.newsletter-form span.imp {
         color: #b80000;
     }
 
-    #obNewsletterPopup form.newsletter-form label {
+    #fulfilNewsletterPopup form.newsletter-form label {
         margin-bottom: 4px;
         display: inline-block;
         color: #000;
         font-size: 1.4rem;
     }
 
-    #obNewsletterPopup form.newsletter-form label a {
+    #fulfilNewsletterPopup form.newsletter-form label a {
         color: #000;
         outline: 0;
         font-weight: bold;
         text-decoration: underline dotted #000;
     }
 
-    #obNewsletterPopup form.newsletter-form label a:hover,
-    #obNewsletterPopup form.newsletter-form label a:active,
-    #obNewsletterPopup form.newsletter-form label a:focus {
+    #fulfilNewsletterPopup form.newsletter-form label a:hover,
+    #fulfilNewsletterPopup form.newsletter-form label a:active,
+    #fulfilNewsletterPopup form.newsletter-form label a:focus {
         text-decoration: underline solid #000;
     }
 
-    #obNewsletterPopup form.newsletter-form fieldset.check-full {
+    #fulfilNewsletterPopup form.newsletter-form fieldset.check-full {
         display: flex;
         flex-wrap: wrap;
         border: 0;
@@ -294,31 +297,31 @@
         padding: 0;
     }
 
-    #obNewsletterPopup form.newsletter-form fieldset.check-full legend {
+    #fulfilNewsletterPopup form.newsletter-form fieldset.check-full legend {
         margin-bottom: 10px;
     }
 
-    #obNewsletterPopup form.newsletter-form fieldset.check-full legend,
-    #obNewsletterPopup form.newsletter-form fieldset.check-full label {
+    #fulfilNewsletterPopup form.newsletter-form fieldset.check-full legend,
+    #fulfilNewsletterPopup form.newsletter-form fieldset.check-full label {
         border-bottom: 0;
         color: #000;
     }
 
-    #obNewsletterPopup form.newsletter-form fieldset.check-full input {
+    #fulfilNewsletterPopup form.newsletter-form fieldset.check-full input {
         margin: 0 10px 0 0;
     }
 
-    #obNewsletterPopup form.newsletter-form fieldset.check-full .input-container {
+    #fulfilNewsletterPopup form.newsletter-form fieldset.check-full .input-container {
         width: 100%;
         margin: 15px 0 0 0;
         padding: 0;
     }
 
-    #obNewsletterPopup form.newsletter-form .input-container {
+    #fulfilNewsletterPopup form.newsletter-form .input-container {
         position: relative;
     }
 
-    #obNewsletterPopup form.newsletter-form .input-container input[type='text'] {
+    #fulfilNewsletterPopup form.newsletter-form .input-container input[type='text'] {
         border: 2px solid #000;
         font-size: 18px;
         padding: 5px 10px;
@@ -332,13 +335,13 @@
         outline: none;
     }
 
-    #obNewsletterPopup form.newsletter-form input[type="text"]:focus-visible {
+    #fulfilNewsletterPopup form.newsletter-form input[type="text"]:focus-visible {
         outline: 1px solid #000;
         border-color: #000;
     }
 
-    #obNewsletterPopup form.newsletter-form input[type='checkbox'],
-    #obNewsletterPopup form.newsletter-form input[type='radio'] {
+    #fulfilNewsletterPopup form.newsletter-form input[type='checkbox'],
+    #fulfilNewsletterPopup form.newsletter-form input[type='radio'] {
         position: relative;
         float: left;
         background-color: #fff;
@@ -355,20 +358,20 @@
         cursor: pointer;
     }
 
-    #obNewsletterPopup form.newsletter-form input[type="checkbox"]:focus-visible,
-    #obNewsletterPopup form.newsletter-form input[type="radio"]:focus-visible {
+    #fulfilNewsletterPopup form.newsletter-form input[type="checkbox"]:focus-visible,
+    #fulfilNewsletterPopup form.newsletter-form input[type="radio"]:focus-visible {
         outline: 1px solid #000;
         border-color: #000;
     }
 
-    #obNewsletterPopup form.newsletter-form input[type="checkbox"]:checked,
-    #obNewsletterPopup form.newsletter-form input[type="radio"]:checked {
+    #fulfilNewsletterPopup form.newsletter-form input[type="checkbox"]:checked,
+    #fulfilNewsletterPopup form.newsletter-form input[type="radio"]:checked {
         border-color: #000;
         background-color: #000;
     }
 
-    #obNewsletterPopup form.newsletter-form input[type="checkbox"]:checked::after,
-    #obNewsletterPopup form.newsletter-form input[type="radio"]:checked::after {
+    #fulfilNewsletterPopup form.newsletter-form input[type="checkbox"]:checked::after,
+    #fulfilNewsletterPopup form.newsletter-form input[type="radio"]:checked::after {
         content: "\2714";
         color: white;
         font-size: 16px;
@@ -379,8 +382,8 @@
         transform: translate(-50%, -50%);
     }
 
-    #obNewsletterPopup form.newsletter-form input[type='checkbox'] + label,
-    #obNewsletterPopup form.newsletter-form input[type='radio'] + label {
+    #fulfilNewsletterPopup form.newsletter-form input[type='checkbox'] + label,
+    #fulfilNewsletterPopup form.newsletter-form input[type='radio'] + label {
         text-transform: none;
         display: block;
         width: calc(100% - 30px);
@@ -389,14 +392,14 @@
         top: -3px;
     }
 
-    #obNewsletterPopup form.newsletter-form .input-container label[for='optin'] {
+    #fulfilNewsletterPopup form.newsletter-form .input-container label[for='optin'] {
         font-size: 1.32rem;
         line-height: 1.2;
         white-space: discard;
         overflow: hidden;
     }
 
-    #obNewsletterPopup form.newsletter-form button[type="submit"] {
+    #fulfilNewsletterPopup form.newsletter-form button[type="submit"] {
         display: block;
         position: relative;
         width: auto;
@@ -406,8 +409,8 @@
         padding: 1.5rem 3rem;
         border-radius: 999em;
         border: 0;
-        background-color: rgb(255, 158, 37);
-        color: rgb(17, 17, 17);
+        background-color: black;
+        color: white;
         cursor: pointer;
         user-select: none;
         white-space: nowrap;
@@ -415,31 +418,35 @@
         text-transform: uppercase;
     }
 
-    #obNewsletterPopup form.newsletter-form button,
-    #obNewsletterPopup form.newsletter-form button span {
+    #fulfilNewsletterPopup form.newsletter-form button,
+    #fulfilNewsletterPopup form.newsletter-form button span {
         font-size: 1.75rem;
         font-weight: bold;
-        color: rgb(17, 17, 17);
+        color: white;
     }
 
-    #obNewsletterPopup form.newsletter-form input:disabled,
-    #obNewsletterPopup form.newsletter-form button:disabled {
+    #fulfilNewsletterPopup form.newsletter-form input:disabled,
+    #fulfilNewsletterPopup form.newsletter-form button:disabled {
         opacity: 50%;
         cursor: default;
         user-select: none;
     }
 
-    #obNewsletterPopup form.newsletter-form button:not(:disabled):hover,
-    #obNewsletterPopup form.newsletter-form button:not(:disabled):active,
-    #obNewsletterPopup form.newsletter-form button:not(:disabled):focus {
+    #fulfilNewsletterPopup form.newsletter-form button:not(:disabled):hover,
+    #fulfilNewsletterPopup form.newsletter-form button:not(:disabled):active,
+    #fulfilNewsletterPopup form.newsletter-form button:not(:disabled):focus {
         filter: brightness(1.15);
     }
 
-    #obNewsletterPopup form.newsletter-form button:not(:disabled):focus-visible {
+    #fulfilNewsletterPopup form.newsletter-form button:not(:disabled):focus-visible {
         outline: 3px solid #222;
     }
 
-    #obNewsletterPopup form.newsletter-form button span.loader {
+    #fulfilNewsletterPopup form.newsletter-form button span.label {
+        background-color: transparent;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form button span.loader {
         position: absolute;
         z-index: 0;
         top: calc(50% - 2.5em);
@@ -448,17 +455,17 @@
         font-size: 0.8rem;
     }
 
-    #obNewsletterPopup form.newsletter-form button span.label,
-    #obNewsletterPopup form.newsletter-form.loading button span.loader {
+    #fulfilNewsletterPopup form.newsletter-form button span.label,
+    #fulfilNewsletterPopup form.newsletter-form.loading button span.loader {
         visibility: visible;
     }
 
-    #obNewsletterPopup form.newsletter-form button span.loader,
-    #obNewsletterPopup form.newsletter-form.loading button span.label {
+    #fulfilNewsletterPopup form.newsletter-form button span.loader,
+    #fulfilNewsletterPopup form.newsletter-form.loading button span.label {
         visibility: hidden;
     }
 
-    #obNewsletterPopup form.newsletter-form .error {
+    #fulfilNewsletterPopup form.newsletter-form .error {
         display: none !important;
         visibility: hidden !important;
         width: 100%;
@@ -470,37 +477,37 @@
         white-space: nowrap;
     }
 
-    #obNewsletterPopup form.newsletter-form .field-wrapper .error {
+    #fulfilNewsletterPopup form.newsletter-form .field-wrapper .error {
         position: absolute;
         bottom: -20px;
         left: 0;
         width: calc(100% - 10px);
     }
 
-    #obNewsletterPopup form.newsletter-form .check-full .error {
+    #fulfilNewsletterPopup form.newsletter-form .check-full .error {
         float: left;
         clear: left;
         margin-top: -4px;
     }
 
-    #obNewsletterPopup form.newsletter-form .input-container input.input-error:not(:checked) {
+    #fulfilNewsletterPopup form.newsletter-form .input-container input.input-error:not(:checked) {
         color: #eb0029;
         border-color: #eb0029;
     }
 
-    #obNewsletterPopup form.newsletter-form .input-container input.input-error:not(:checked):focus-visible {
+    #fulfilNewsletterPopup form.newsletter-form .input-container input.input-error:not(:checked):focus-visible {
         outline-color: #eb0029;
     }
 
-    #obNewsletterPopup form.newsletter-form .input-container input.input-error ~ .error {
+    #fulfilNewsletterPopup form.newsletter-form .input-container input.input-error ~ .error {
         visibility: visible;
     }
 
-    #obNewsletterPopup form.newsletter-form .input-container input.input-error ~ i {
+    #fulfilNewsletterPopup form.newsletter-form .input-container input.input-error ~ i {
         color: #eb0029;
     }
 
-    #obNewsletterPopup form.newsletter-form .newsletter-100 {
+    #fulfilNewsletterPopup form.newsletter-form .newsletter-100 {
         display: flex;
         justify-content: space-between;
         width: 100%;
@@ -509,39 +516,36 @@
 
 </style>
 
-<div id="obNewsletterPopup" class="ob-newsletter-popup-container">
+<div id="fulfilNewsletterPopup" class="ob-newsletter-popup-container">
     <div class="ob-newsletter-popup-inner">
 
-        <button id="obNewsletterPopupClose" class="ob-popup-close-btn" aria-label="Close popup window">
+        <button id="fulfilNewsletterPopupClose" class="ob-popup-close-btn" aria-label="Close popup window">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="m3.426 2.024.094.083L8 6.586l4.48-4.479a1 1 0 0 1 1.497 1.32l-.083.095L9.414 8l4.48 4.478a1 1 0 0 1-1.32 1.498l-.094-.083L8 9.413l-4.48 4.48a1 1 0 0 1-1.497-1.32l.083-.095L6.585 8 2.106 3.522a1 1 0 0 1 1.32-1.498Z"></path>
             </svg>
         </button>
 
         <div class="ob-newsletter-popup-side-l">
-            <img src="/content/dam/one-brands/images/home/one-co-brand-email-signup.webp" alt="ONE Brands Newsletter Popup Background" class="ob-popup-bg" />
+            <img src="/content/dam/fulfil/images/home/fulfil-newsletter-popup-background.webp" alt="FULFIL Newsletter Popup Background" class="ob-popup-bg" />
         </div>
 
         <div class="ob-newsletter-popup-side-r">
             <div class="ob-popup-content">
 
-                <img src="/content/dam/one-brands/images/navigation/one-brands-logo.png" alt="ONE Brands Logo" class="ob-popup-logo" />
-                <h1 class="ob-popup-heading">GET THE LATEST</h1>
-                <p class="ob-popup-subheading">
-                    <span>If you think our bars look good,</span>
-                    <span>you should see our emails.</span>
-                </p>
+                <img src="/content/dam/fulfil/images/navigation/fulfil-logo.png" alt="FULFIL Logo" class="ob-popup-logo" />
+                <h1 class="ob-popup-heading">JOIN THE FULFIL FAM</h1>
+                <p class="ob-popup-subheading">Stay up-to-date on upcoming promotions & releases!</p>
                 <h2 class="ob-popup-form-title">SIGN UP FOR OUR NEWSLETTER</h2>
 
                 <form name="ProfileForm"
-                      action="https://l.one1brands.com/u/register.php"
+                      action="https://l.livefulfil.com/u/register.php"
                       method="get"
                       class="newsletter-form">
 
-                    <input type=hidden name="CID" value="886684565">
+                    <input type=hidden name="CID" value="886327888">
                     <input type=hidden name="SID" value="">
                     <input type=hidden name="UID" value="">
-                    <input type=hidden name="f" value="681">
+                    <input type=hidden name="f" value="680">
                     <input type=hidden name="p" value="2">
                     <input type=hidden name="a" value="r">
                     <input type=hidden name="el" value="">
@@ -552,7 +556,7 @@
                     <input type=hidden name="mailnow" value="">
 
                     <!-- Origin Site Source Placeholder -->
-                    <input type="hidden" name="inp_15090" value="">
+                    <input type="hidden" name="inp_15110" value="">
 
                     <div class="newsletter-100 field-wrapper col-xs-12 form-field col-md-12">
                         <label for="inp_1">First Name <span class="imp">*</span></label>
@@ -715,7 +719,7 @@
         const form = document.getElementsByName('ProfileForm').item(0);
         if (form instanceof HTMLFormElement) {
             // Origin Site Source Placeholder
-            const inputElm = form.querySelectorAll('input[name=inp_15090]').item(0);
+            const inputElm = form.querySelectorAll('input[name=inp_15110]').item(0);
             const urlParams = new URLSearchParams(window.location.search);
             const newsbkg = urlParams.get('newsbkg');
             inputElm.value = (newsbkg && newsbkg.length > 0 && inputElm.value.length === 0) ? newsbkg : 'hersheyglobal';
@@ -861,9 +865,9 @@
     });
 
     document.addEventListener('DOMContentLoaded', function() {
-        const obNewsletterPopupClose = document.getElementById('obNewsletterPopupClose');
-        if (obNewsletterPopupClose instanceof HTMLButtonElement) {
-            obNewsletterPopupClose.addEventListener('click', (event) => {
+        const fulfilNewsletterPopupClose = document.getElementById('fulfilNewsletterPopupClose');
+        if (fulfilNewsletterPopupClose instanceof HTMLButtonElement) {
+            fulfilNewsletterPopupClose.addEventListener('click', (event) => {
                 closePopup();
                 setPopupDismissed();
             });
@@ -880,7 +884,7 @@
         }, { passive: true });
     };
 
-    const POPUP_COOKIE = 'ob_newsletter_popup_dismissed';
+    const POPUP_COOKIE = 'fulfil_newsletter_popup_dismissed';
 
     const setPopupDismissed = () => {
         const expires = new Date();
@@ -893,20 +897,20 @@
     };
 
     const closePopup = () => {
-        const obNewsletterPopup = document.getElementById('obNewsletterPopup');
-        if (obNewsletterPopup instanceof HTMLElement) {
-            obNewsletterPopup.classList.add('hide');
-            obNewsletterPopup.classList.remove('show-popup-now');
-            obNewsletterPopup.style.display = 'none';
+        const fulfilNewsletterPopup = document.getElementById('fulfilNewsletterPopup');
+        if (fulfilNewsletterPopup instanceof HTMLElement) {
+            fulfilNewsletterPopup.classList.add('hide');
+            fulfilNewsletterPopup.classList.remove('show-popup-now');
+            fulfilNewsletterPopup.style.display = 'none';
         }
     };
 
     const openPopup = () => {
-        const obNewsletterPopup = document.getElementById('obNewsletterPopup');
-        if (obNewsletterPopup instanceof HTMLElement) {
-            obNewsletterPopup.classList.add('show-popup-now');
-            obNewsletterPopup.classList.remove('hide');
-            obNewsletterPopup.style.display = 'block';
+        const fulfilNewsletterPopup = document.getElementById('fulfilNewsletterPopup');
+        if (fulfilNewsletterPopup instanceof HTMLElement) {
+            fulfilNewsletterPopup.classList.add('show-popup-now');
+            fulfilNewsletterPopup.classList.remove('hide');
+            fulfilNewsletterPopup.style.display = 'block';
         }
     };
 
