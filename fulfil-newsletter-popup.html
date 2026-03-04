@@ -83,7 +83,7 @@
     }
 
     #fulfilNewsletterPopup.ob-newsletter-popup-container.show-popup-now {
-        z-index: 9999;
+        z-index: 8888;
         position: fixed;
         top: 0;
         left: 0;
@@ -93,19 +93,6 @@
         opacity: 1;
         pointer-events: auto;
         cursor: default;
-    }
-
-    #fulfilNewsletterPopup .ob-newsletter-popup-inner {
-        position: absolute;
-        top: calc(92px + 50%);
-        left: 50%;
-        width: 900px;
-        max-height: calc(100vh - 40px - 92px);
-        transform: translate(-50%, calc(-50% - 46px));
-        background: white;
-        display: flex;
-        flex-direction: row;
-        overflow: hidden;
     }
 
     #fulfilNewsletterPopup .ob-newsletter-popup-side-l {
@@ -143,7 +130,7 @@
         width: 150px;
         height: auto;
         display: block;
-        margin: 0 auto;
+        margin: 0 auto 24px auto;
         padding: 0;
         outline: none;
         border: none;
@@ -164,20 +151,20 @@
         text-wrap: balance;
         text-align: center;
         line-height: 1.32;
+        margin: 15px 0;
+        color: rgb(17, 17, 17);
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     #fulfilNewsletterPopup .ob-popup-heading {
         font-size: 3.5rem;
         font-weight: 900;
         text-transform: uppercase;
-        color: rgb(17, 17, 17);
-        margin: 24px 0 15px 0;
     }
 
     #fulfilNewsletterPopup .ob-popup-subheading {
         font-size: 1.6rem;
-        color: rgb(17, 17, 17);
-        margin: 15px 0;
     }
 
     #fulfilNewsletterPopup .ob-popup-subheading span {
@@ -186,8 +173,6 @@
 
     #fulfilNewsletterPopup .ob-popup-form-title {
         font-size: 1.5rem;
-        color: rgb(17, 17, 17);
-        margin: 15px 0;
     }
 
     #fulfilNewsletterPopup .ob-popup-close-btn {
@@ -309,13 +294,16 @@
         color: #000;
         outline: 0;
         font-weight: bold;
-        text-decoration: underline dotted #000;
+        text-decoration: none;
+        border: none;
+        border-bottom: 1px dotted #000;
+        display: inline-block;
     }
 
     #fulfilNewsletterPopup form.newsletter-form label a:hover,
     #fulfilNewsletterPopup form.newsletter-form label a:active,
     #fulfilNewsletterPopup form.newsletter-form label a:focus {
-        text-decoration: underline solid #000;
+        border-bottom-style: solid;
     }
 
     #fulfilNewsletterPopup form.newsletter-form fieldset.check-full {
@@ -545,28 +533,25 @@
         padding: 0;
     }
 
-    @media screen and (max-width: 400px) and (max-height: 700px) {
+    @media (max-height: 700px) or (max-width: 300px) {
         #fulfilNewsletterPopup .ob-popup-heading {
             display: none;
         }
+    }
 
+    @media (max-height: 800px) or (max-width: 350px) {
         #fulfilNewsletterPopup .ob-popup-subheading {
             display: none;
         }
     }
 
-    @media screen and (max-width: 940px) {
-        #fulfilNewsletterPopup .ob-newsletter-popup-inner {
-            width: calc(100vw - 20px);
-            max-height: calc(100vh - 20px - 62px);
-            transform: translate(0, calc(-50% - 31px));
-            top: calc(62px + 50%);
-            left: 10px;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
+    @media (max-height: 900px) or (max-width: 400px) {
+        #fulfilNewsletterPopup .ob-popup-logo {
+            display: none;
         }
+    }
 
+    @media screen and (max-width: 990px) {
         #fulfilNewsletterPopup .ob-newsletter-popup-side-l {
             width: 0;
             height: 0;
@@ -584,16 +569,24 @@
             height: 100%;
         }
 
+        #fulfilNewsletterPopup .ob-popup-heading,
+        #fulfilNewsletterPopup .ob-popup-subheading,
+        #fulfilNewsletterPopup .ob-popup-form-title {
+            line-height: 1.15;
+            margin: 10px 0;
+            padding: 0 28px;
+        }
+
         #fulfilNewsletterPopup .ob-popup-heading {
-            font-size: 3.2rem;
-            line-height: 1.2;
-            margin: 28px 0 10px 0;
+            font-size: 3rem;
         }
 
         #fulfilNewsletterPopup .ob-popup-subheading {
-            font-size: 1.6rem;
-            line-height: 1.2;
-            margin: 10px 0;
+            font-size: 1.5rem;
+        }
+
+        #fulfilNewsletterPopup .ob-popup-form-title {
+            font-size: 1.3rem;
         }
 
         #fulfilNewsletterPopup .ob-popup-logo {
@@ -604,6 +597,44 @@
             font-size: 1.2rem;
             line-height: 1.1;
         }
+    }
+
+    @media screen and (min-width: 0) and (max-width: 990px) {
+        :root {
+            --header-nav-height: 60px;
+            --newsletter-popup-spacing: 10px;
+            --newsletter-popup-layout: column;
+        }
+    }
+
+    @media screen and (min-width: 991px) and (max-width: 1199px) {
+        :root {
+            --header-nav-height: 80px;
+            --newsletter-popup-spacing: 15px;
+            --newsletter-popup-layout: row;
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+        :root {
+            --header-nav-height: 90px;
+            --newsletter-popup-spacing: 20px;
+            --newsletter-popup-layout: row;
+        }
+    }
+
+    #fulfilNewsletterPopup .ob-newsletter-popup-inner {
+        position: absolute;
+        top: calc(var(--header-nav-height) + 50%);
+        left: 50%;
+        width: calc(100vw - (var(--newsletter-popup-spacing) * 2));
+        max-width: 900px;
+        max-height: calc(100vh - (var(--newsletter-popup-spacing) * 2) - var(--header-nav-height));
+        transform: translate(-50%, calc(-50% - (var(--header-nav-height) / 2)));
+        background: white;
+        display: flex;
+        flex-direction: var(--newsletter-popup-layout);
+        overflow: hidden;
     }
 </style>
 
