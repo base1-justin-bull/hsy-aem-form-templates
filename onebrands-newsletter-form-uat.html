@@ -542,7 +542,7 @@
                     Subscribe to One Brand's Newsletter
                 </h1>
 
-                <form name="ProfileForm"
+                <form name="ONEBRANDS_EMBEDED_UAT_ProfileForm"
                       action="https://l.one1brands.com/u/register.php"
                       method="get"
                       class="newsletter-form">
@@ -627,17 +627,40 @@
 </div>
 
 <script language="javascript">
-    function get_inputs(name) {
-        return document.querySelectorAll(`form[name=ProfileForm] input[name=${name}]`);
+    function ONEBRANDS_EMBEDED_UAT_getForm() {
+        const form = document.getElementsByName('ONEBRANDS_EMBEDED_UAT_ProfileForm').item(0);
+        if (form instanceof HTMLFormElement) {
+            return form;
+        }
+
+        return null;
     }
 
-    function get_input(name) {
-        return get_inputs(name).item(0);
+    function ONEBRANDS_EMBEDED_UAT_get_inputs_by_name(name) {
+        const form = ONEBRANDS_EMBEDED_UAT_getForm();
+        if (form) {
+            return form.querySelectorAll(`input[name=${name}]`);
+        }
+
+        return null;
     }
 
-    function required_input_check(name, fullCheck = true, customValidator = null) {
-        const inputs = get_inputs(name);
-        const input = get_input(name);
+    function ONEBRANDS_EMBEDED_UAT_get_input_by_name(name) {
+        const input = ONEBRANDS_EMBEDED_UAT_get_inputs_by_name(name)?.item(0);
+        if (input instanceof HTMLInputElement) {
+            return input;
+        }
+
+        return null;
+    }
+
+    function ONEBRANDS_EMBEDED_UAT_required_input_check(name, fullCheck = true, customValidator = null) {
+        const inputs = ONEBRANDS_EMBEDED_UAT_get_inputs_by_name(name);
+        const input = ONEBRANDS_EMBEDED_UAT_get_input_by_name(name);
+
+        // Fail if undefined
+        if (!inputs) return false;
+        if (!input) return false;
 
         // Clear all error states
         inputs.forEach((input) => {
@@ -694,7 +717,7 @@
     }
 
     // https://stackoverflow.com/a/46181
-    function email_validator(value) {
+    function ONEBRANDS_EMBEDED_UAT_email_validator(value) {
         return String(value)
             .toLowerCase()
             .trim()
@@ -703,11 +726,24 @@
             );
     }
 
-    function is_1_valid() { return required_input_check('inp_1'); }
-    function is_2_valid() { return required_input_check('inp_2'); }
-    function is_3_valid(fullCheck = true) { return required_input_check('inp_3', fullCheck, email_validator); }
-    function is_optin_valid() {
-        const input = document.querySelectorAll('form[name=ProfileForm] input[name=optin]').item(0);
+    function ONEBRANDS_EMBEDED_UAT_is_1_valid() {
+        return ONEBRANDS_EMBEDED_UAT_required_input_check('inp_1');
+    }
+
+    function ONEBRANDS_EMBEDED_UAT_is_2_valid() {
+        return ONEBRANDS_EMBEDED_UAT_required_input_check('inp_2');
+    }
+
+    function ONEBRANDS_EMBEDED_UAT_is_3_valid(fullCheck = true) {
+        return ONEBRANDS_EMBEDED_UAT_required_input_check('inp_3', fullCheck, ONEBRANDS_EMBEDED_UAT_email_validator);
+    }
+
+    function ONEBRANDS_EMBEDED_UAT_is_optin_valid() {
+        const input = ONEBRANDS_EMBEDED_UAT_get_input_by_name('optin');
+        if (!input) {
+            return false;
+        }
+
         input.classList.remove('input-error');
         if (!input.checked) {
             input.classList.add('input-error');
@@ -717,36 +753,35 @@
         return true;
     }
 
-    function checkInputs() {
+    function ONEBRANDS_EMBEDED_UAT_checkInputs() {
         let isValid = true;
-        isValid = is_1_valid() && isValid; // First Name *
-        isValid = is_2_valid() && isValid; // Last Name *
-        isValid = is_3_valid() && isValid; // Email *
-        isValid = is_optin_valid() && isValid; // Terms Checkbox *
+        isValid = ONEBRANDS_EMBEDED_UAT_is_1_valid() && isValid; // First Name *
+        isValid = ONEBRANDS_EMBEDED_UAT_is_2_valid() && isValid; // Last Name *
+        isValid = ONEBRANDS_EMBEDED_UAT_is_3_valid() && isValid; // Email *
+        isValid = ONEBRANDS_EMBEDED_UAT_is_optin_valid() && isValid; // Terms Checkbox *
         return isValid;
     }
 
-    function populateHiddenFields() {
-        const form = document.getElementsByName('ProfileForm').item(0);
-        if (form instanceof HTMLFormElement) {
-            // Origin Site Source Placeholder
-            const inputElm = form.querySelectorAll('input[name=inp_15090]').item(0);
+    function ONEBRANDS_EMBEDED_UAT_populateHiddenFields() {
+        // Origin Site Source Placeholder
+        const inputElm = ONEBRANDS_EMBEDED_UAT_get_input_by_name('inp_15090');
+        if (inputElm) {
             const urlParams = new URLSearchParams(window.location.search);
             const newsbkg = urlParams.get('newsbkg');
             inputElm.value = (newsbkg && newsbkg.length > 0 && inputElm.value.length === 0) ? newsbkg : 'hersheyglobal';
         }
     }
 
-    function submitForm() {
-        const form = document.getElementsByName('ProfileForm').item(0);
-        if (form instanceof HTMLFormElement) {
+    function ONEBRANDS_EMBEDED_UAT_submitForm() {
+        const form = ONEBRANDS_EMBEDED_UAT_getForm();
+        if (form) {
             form.classList.add('loading');
-            populateHiddenFields();
+            ONEBRANDS_EMBEDED_UAT_populateHiddenFields();
             const data = new FormData(form);
             const dataObject = Object.fromEntries(data);
             const urlParams = new URLSearchParams(dataObject).toString();
             const url = `${form.action}?${urlParams}`;
-            disableFormInputs();
+            ONEBRANDS_EMBEDED_UAT_disableFormInputs();
             fetch(url, {
                 method: form.method,
                 mode: 'no-cors',
@@ -754,18 +789,20 @@
                     'Content-Type': 'multipart/form-data',
                 },
             }).then(() => {
-                scrollToFormTop();
-                setTimeout(() => { onSubmitComplete(); }, 500);
+                ONEBRANDS_EMBEDED_UAT_scrollToFormTop();
+                setTimeout(() => {
+                    ONEBRANDS_EMBEDED_UAT_onSubmitComplete();
+                }, 500);
             }).catch(error => {
-                enableFormInputs();
-                onSubmitError(error);
+                ONEBRANDS_EMBEDED_UAT_enableFormInputs();
+                ONEBRANDS_EMBEDED_UAT_onSubmitError(error);
             }).finally(() => {
                 form.classList.remove('loading');
             });
         }
     }
 
-    function getOffsetTop(element) {
+    function ONEBRANDS_EMBEDED_UAT_getOffsetTop(element) {
         let offsetTop = 0;
         while (element) {
             offsetTop += element.offsetTop;
@@ -778,9 +815,9 @@
         return offsetTop;
     }
 
-    function scrollToFormTop() {
+    function ONEBRANDS_EMBEDED_UAT_scrollToFormTop() {
         const formContainer = document.getElementById('newsletter_register_form');
-        let offset = getOffsetTop(formContainer) - 50;
+        let offset = ONEBRANDS_EMBEDED_UAT_getOffsetTop(formContainer) - 50;
         if (offset < 0) offset = 0;
         window.scrollTo({
             top: offset,
@@ -788,24 +825,24 @@
         });
     }
 
-    function scrollToFirstInputError() {
-        const form = document.getElementsByName('ProfileForm').item(0);
-        if (form instanceof HTMLFormElement) {
+    function ONEBRANDS_EMBEDED_UAT_scrollToFirstInputError() {
+        const form = ONEBRANDS_EMBEDED_UAT_getForm();
+        if (form) {
             const elements = form.querySelectorAll('input.input-error');
             if (elements.length > 0) {
                 const element = elements.item(0);
                 element.focus();
                 window.scrollTo({
-                    top: getOffsetTop(element),
+                    top: ONEBRANDS_EMBEDED_UAT_getOffsetTop(element),
                     behavior: 'smooth',
                 });
             }
         }
     }
 
-    function enableFormInputs() {
-        const form = document.getElementsByName('ProfileForm').item(0);
-        if (form instanceof HTMLFormElement) {
+    function ONEBRANDS_EMBEDED_UAT_enableFormInputs() {
+        const form = ONEBRANDS_EMBEDED_UAT_getForm();
+        if (form) {
             const elements = form.elements;
             for (let i = 0; i < elements.length; i++) {
                 elements[i].disabled = false;
@@ -813,9 +850,9 @@
         }
     }
 
-    function disableFormInputs() {
-        const form = document.getElementsByName('ProfileForm').item(0);
-        if (form instanceof HTMLFormElement) {
+    function ONEBRANDS_EMBEDED_UAT_disableFormInputs() {
+        const form = ONEBRANDS_EMBEDED_UAT_getForm();
+        if (form) {
             const elements = form.elements;
             for (let i = 0; i < elements.length; i++) {
                 elements[i].disabled = true;
@@ -823,42 +860,43 @@
         }
     }
 
-    function onSubmitComplete() {
+    function ONEBRANDS_EMBEDED_UAT_onSubmitComplete() {
         document.getElementById('newsletter_register_form').classList.add('hide');
         document.getElementById('newsletter_thank_you_page').classList.remove('hide');
     }
 
-    function onSubmitError(error) {
+    function ONEBRANDS_EMBEDED_UAT_onSubmitError(error) {
         console.error('Form submission failed:', error);
     }
 
-    function checkLocalStorage() {
+    function ONEBRANDS_EMBEDED_UAT_checkLocalStorage() {
         const value = localStorage.getItem('email');
         if (value) {
-            const input = get_input('inp_3');
-            if (input instanceof HTMLInputElement) {
+            const input = ONEBRANDS_EMBEDED_UAT_get_input_by_name('inp_3');
+            if (input) {
                 input.value = value;
             }
         }
     }
 
-    function bindFormSubmitEvent() {
-        const form = document.getElementsByName('ProfileForm').item(0);
-        if (form instanceof HTMLFormElement) {
-            form.addEventListener('submit', function(event) {
+    function ONEBRANDS_EMBEDED_UAT_bindFormSubmitEvent() {
+        const form = ONEBRANDS_EMBEDED_UAT_getForm();
+        if (form) {
+            form.addEventListener('submit', function (event) {
                 event.preventDefault();
                 event.stopPropagation();
-                if (checkInputs()) submitForm(form);
-                else scrollToFirstInputError();
+                event.stopImmediatePropagation();
+                if (ONEBRANDS_EMBEDED_UAT_checkInputs()) ONEBRANDS_EMBEDED_UAT_submitForm(form);
+                else ONEBRANDS_EMBEDED_UAT_scrollToFirstInputError();
             });
         }
     }
 
-    function bindInputChangeEvents() {
+    function ONEBRANDS_EMBEDED_UAT_bindInputChangeEvents() {
         let previousValues = [];
 
-        const form = document.getElementsByName('ProfileForm').item(0);
-        const inputs = form.getElementsByTagName('input');
+        const form = ONEBRANDS_EMBEDED_UAT_getForm();
+        const inputs = form?.getElementsByTagName('input') || [];
         for (let i = 0; i < inputs.length; i++) {
             const input = inputs[i];
             if (!input || input.type === 'hidden') {
@@ -876,22 +914,43 @@
                 const valueChanged = currentValue !== previousValue;
                 if (valueChanged || hasError) {
                     switch (event.target.name) {
-                        case 'inp_1': is_1_valid(); break;
-                        case 'inp_2': is_2_valid(); break;
-                        case 'inp_3': is_3_valid(hasError); break;
+                        case 'inp_1':
+                            ONEBRANDS_EMBEDED_UAT_is_1_valid();
+                            break;
+                        case 'inp_2':
+                            ONEBRANDS_EMBEDED_UAT_is_2_valid();
+                            break;
+                        case 'inp_3':
+                            ONEBRANDS_EMBEDED_UAT_is_3_valid(hasError);
+                            break;
                     }
                 }
             });
 
             input.addEventListener('change', (event) => {
                 switch (event.target.name) {
-                    case 'inp_1': is_1_valid(); break;
-                    case 'inp_2': is_2_valid(); break;
-                    case 'inp_3': is_3_valid(); break;
+                    case 'inp_1':
+                        ONEBRANDS_EMBEDED_UAT_is_1_valid();
+                        break;
+                    case 'inp_2':
+                        ONEBRANDS_EMBEDED_UAT_is_2_valid();
+                        break;
+                    case 'inp_3':
+                        ONEBRANDS_EMBEDED_UAT_is_3_valid();
+                        break;
                 }
             });
         }
     }
+
+    function ONEBRANDS_EMBEDED_UAT_init() {
+        ONEBRANDS_EMBEDED_UAT_checkLocalStorage();
+        ONEBRANDS_EMBEDED_UAT_bindFormSubmitEvent();
+        ONEBRANDS_EMBEDED_UAT_bindInputChangeEvents();
+    }
+
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ONEBRANDS_EMBEDED_UAT_init);
+    else ONEBRANDS_EMBEDED_UAT_init();
 </script>
 
 <script language="javascript">
@@ -901,15 +960,10 @@
     window.dateFields = dateFields;
 </script>
 
-<script language="javascript" src="https://l.hersheys.com/u/nprefill.js" type="text/javascript"></script>
+<script language="javascript" src="https://l.hersheys.com/u/nprefill.js"></script>
 <script language="javascript">
-    document.addEventListener('DOMContentLoaded', function() {
-        checkLocalStorage();
-        bindFormSubmitEvent();
-        bindInputChangeEvents();
-        // see: https://l.hersheys.com/u/nprefill.js
-        if (typeof window['preFill'] === 'function') {
-            window['preFill']();
-        }
-    });
+    // see: https://l.hersheys.com/u/nprefill.js
+    if (typeof window['preFill'] === 'function') {
+        window['preFill']();
+    }
 </script>
