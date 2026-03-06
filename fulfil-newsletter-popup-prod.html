@@ -1,0 +1,1091 @@
+<style>
+
+    @font-face {
+        font-family: 'TT Norms Pro';
+        font-display: swap;
+        src: url('/etc.clientlibs/hershey/clientlibs/custom-fonts/clientlib-tt/resources/subset-TTNormsPro-Normal.woff2') format("woff2");
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'TT Norms Pro';
+        font-display: swap;
+        src: url('/etc.clientlibs/hershey/clientlibs/custom-fonts/clientlib-tt/resources/subset-TTNormsPro-Bd.woff2') format("woff2");
+        font-weight: bold;
+        font-style: normal;
+    }
+
+    html {
+        font-size: 62.5%;
+        scroll-behavior: smooth;
+    }
+
+    body {
+        color: #3f000b;
+        font-family: 'TT Norms Pro',sans-serif;
+        font-weight: 500;
+        font-size: 1.7rem;
+        line-height: 1.5;
+        text-rendering: optimizeLegibility;
+    }
+
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+
+</style>
+
+<!-- WARNING -->
+<!-- ABOVE THIS LINE IS FOR LOCAL DEVELOPMENT PURPOSES ONLY -->
+<!-- COPY FROM BELOW THIS LINE ONLY -->
+
+<style>
+
+    #mcforms-40074-52919 {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        position: absolute !important;
+        top: -9999rem !important;
+        bottom: -9999rem !important;
+        width: 0 !important;
+        height: 0 !important;
+        overflow: hidden !important;
+    }
+
+    body.ob-newsletter-popup-open {
+        overflow: hidden;
+    }
+
+    #fulfilNewsletterPopup.ob-newsletter-popup-container *,
+    #fulfilNewsletterPopup.ob-newsletter-popup-container *::before,
+    #fulfilNewsletterPopup.ob-newsletter-popup-container *::after {
+        box-sizing: border-box;
+    }
+
+    #fulfilNewsletterPopup.ob-newsletter-popup-container {
+        z-index: -1;
+        position: fixed;
+        top: -999rem;
+        left: -999rem;
+        width: 0;
+        height: 0;
+        background: rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 500ms ease-out;
+        pointer-events: none;
+    }
+
+    #fulfilNewsletterPopup.ob-newsletter-popup-container.show-popup-now {
+        z-index: 8888;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+        cursor: default;
+    }
+
+    #fulfilNewsletterPopup .ob-newsletter-popup-side-l {
+        position: relative;
+        width: 420px;
+        flex-shrink: 0;
+        background: rgb(247, 191, 10);
+    }
+
+    #fulfilNewsletterPopup .ob-newsletter-popup-side-r {
+        position: relative;
+        flex: 1;
+        min-width: 0;
+        min-height: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    #fulfilNewsletterPopup .ob-popup-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        margin: 0;
+        padding: 0;
+        outline: none;
+        border: none;
+        object-fit: cover;
+        object-position: center center;
+    }
+
+    #fulfilNewsletterPopup .ob-popup-logo {
+        width: 150px;
+        height: auto;
+        display: block;
+        margin: 0 auto 24px auto;
+        padding: 0;
+        outline: none;
+        border: none;
+    }
+
+    #fulfilNewsletterPopup .ob-popup-content {
+        width: 100%;
+        padding: 40px;
+        font-family: 'TT Norms Pro', sans-serif;
+        font-weight: 500;
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    #fulfilNewsletterPopup .ob-popup-heading,
+    #fulfilNewsletterPopup .ob-popup-subheading,
+    #fulfilNewsletterPopup .ob-popup-form-title {
+        text-wrap: balance;
+        text-align: center;
+        line-height: 1.32;
+        margin: 15px 0;
+        color: rgb(17, 17, 17);
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    #fulfilNewsletterPopup .ob-popup-heading {
+        font-size: 3.5rem;
+        font-weight: 900;
+        text-transform: uppercase;
+    }
+
+    #fulfilNewsletterPopup .ob-popup-subheading {
+        font-size: 1.6rem;
+    }
+
+    #fulfilNewsletterPopup .ob-popup-subheading span {
+        display: block;
+    }
+
+    #fulfilNewsletterPopup .ob-popup-form-title {
+        font-size: 1.5rem;
+    }
+
+    #fulfilNewsletterPopup .ob-popup-close-btn {
+        z-index: 10;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: block;
+        width: 32px;
+        height: 32px;
+        margin: 0;
+        padding: 0;
+        border: none;
+        border-radius: 50%;
+        background-color: rgb(41, 41, 41);
+        color: rgb(from rgb(255, 255, 255) r g b / 70%);
+        transition: color 200ms ease-out;
+        cursor: pointer;
+    }
+
+    #fulfilNewsletterPopup .ob-popup-close-btn svg {
+        transition: fill 0.2s;
+        display: block;
+        object-fit: contain;
+        width: 16px;
+        height: 16px;
+        padding: 0;
+        margin: 8px;
+        fill: currentcolor;
+    }
+
+    #fulfilNewsletterPopup .ob-popup-close-btn:hover {
+        color: white;
+    }
+
+    @keyframes bblFadInOut {
+        0%, 80%, 100% { box-shadow: 0 2.5em 0 -1.3em }
+        40% { box-shadow: 0 2.5em 0 0 }
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form .loader,
+    #fulfilNewsletterPopup form.newsletter-form .loader::before,
+    #fulfilNewsletterPopup form.newsletter-form .loader::after {
+        border-radius: 50%;
+        width: 2.5em;
+        height: 2.5em;
+        animation-fill-mode: both;
+        animation: bblFadInOut 1.8s infinite ease-in-out;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form .loader {
+        color: #fff;
+        font-size: 7px;
+        position: relative;
+        text-indent: -9999em;
+        transform: translateZ(0);
+        animation-delay: -0.16s;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form .loader::before,
+    #fulfilNewsletterPopup form.newsletter-form .loader::after {
+        content: '';
+        position: absolute;
+        top: 0;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form .loader::before {
+        left: -3.5em;
+        animation-delay: -0.32s;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form .loader::after {
+        left: 3.5em;
+    }
+
+    #fulfilNewsletterPopup.hide,
+    #fulfilNewsletterPopup.hide *,
+    #fulfilNewsletterPopup .hide,
+    #fulfilNewsletterPopup .hide * {
+        display: none !important;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form  {
+        position: relative;
+        text-align: left;
+        padding: 10px 0;
+        margin: 0;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form .form-field {
+        margin-bottom: 10px;
+        margin-top: 0;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form .form-field label {
+        margin-left: 0;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form .field-wrapper {
+        flex-direction: column;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form .field-wrapper label {
+        font-weight: 700;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form span.imp {
+        color: #b80000;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form label {
+        margin-bottom: 4px;
+        display: inline-block;
+        color: #000;
+        font-size: 1.4rem;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form label a {
+        color: #000;
+        outline: 0;
+        font-weight: bold;
+        text-decoration: none;
+        border: none;
+        border-bottom: 1px dotted #000;
+        display: inline-block;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form label a:hover,
+    #fulfilNewsletterPopup form.newsletter-form label a:active,
+    #fulfilNewsletterPopup form.newsletter-form label a:focus {
+        border-bottom-style: solid;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form fieldset.check-full {
+        display: flex;
+        flex-wrap: wrap;
+        border: 0;
+        margin: 0 0 20px 0;
+        padding: 0;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form fieldset.check-full legend {
+        margin-bottom: 10px;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form fieldset.check-full legend,
+    #fulfilNewsletterPopup form.newsletter-form fieldset.check-full label {
+        border-bottom: 0;
+        color: #000;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form fieldset.check-full input {
+        margin: 0 10px 0 0;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form fieldset.check-full .input-container {
+        width: 100%;
+        margin: 15px 0 0 0;
+        padding: 0;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form .input-container {
+        position: relative;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form .input-container input[type='text'] {
+        border: 2px solid #000;
+        font-size: 18px;
+        padding: 5px 10px;
+        color: #000;
+        width: 100%;
+        border-radius: 2px;
+        min-height: 50px;
+        letter-spacing: 0.03em;
+        font-weight: 400;
+        appearance: none;
+        outline: none;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form input[type="text"]:focus-visible {
+        outline: 1px solid #000;
+        border-color: #000;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form input[type='checkbox'],
+    #fulfilNewsletterPopup form.newsletter-form input[type='radio'] {
+        position: relative;
+        float: left;
+        background-color: #fff;
+        height: 20px;
+        width: 20px;
+        content: '';
+        display: block;
+        border: 2px solid #000;
+        border-radius: 2px;
+        margin-right: 10px;
+        appearance: none;
+        outline: none;
+        padding: 0;
+        cursor: pointer;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form input[type="checkbox"]:focus-visible,
+    #fulfilNewsletterPopup form.newsletter-form input[type="radio"]:focus-visible {
+        outline: 1px solid #000;
+        border-color: #000;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form input[type="checkbox"]:checked,
+    #fulfilNewsletterPopup form.newsletter-form input[type="radio"]:checked {
+        border-color: #000;
+        background-color: #000;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form input[type="checkbox"]:checked::after,
+    #fulfilNewsletterPopup form.newsletter-form input[type="radio"]:checked::after {
+        content: "\2714";
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form input[type='checkbox'] + label,
+    #fulfilNewsletterPopup form.newsletter-form input[type='radio'] + label {
+        text-transform: none;
+        display: block;
+        width: calc(100% - 30px);
+        margin-left: 25px;
+        position: relative;
+        top: -3px;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form .input-container label[for='optin'] {
+        font-size: 1.32rem;
+        line-height: 1.2;
+        white-space: normal;
+        overflow: hidden;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form button[type="submit"] {
+        display: block;
+        position: relative;
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 1.5rem 3rem;
+        border-radius: 999em;
+        border: 0;
+        background-color: black;
+        color: white;
+        cursor: pointer;
+        user-select: none;
+        white-space: nowrap;
+        text-align: center;
+        text-transform: uppercase;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form button,
+    #fulfilNewsletterPopup form.newsletter-form button span {
+        font-size: 1.75rem;
+        font-weight: bold;
+        color: white;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form input:disabled,
+    #fulfilNewsletterPopup form.newsletter-form button:disabled {
+        opacity: 50%;
+        cursor: default;
+        user-select: none;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form button:not(:disabled):hover,
+    #fulfilNewsletterPopup form.newsletter-form button:not(:disabled):active,
+    #fulfilNewsletterPopup form.newsletter-form button:not(:disabled):focus {
+        filter: brightness(1.15);
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form button:not(:disabled):focus-visible {
+        outline: 3px solid #222;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form button span.label {
+        background-color: transparent;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form button span.loader {
+        position: absolute;
+        z-index: 0;
+        top: calc(50% - 2.5em);
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 0.8rem;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form button span.label,
+    #fulfilNewsletterPopup form.newsletter-form.loading button span.loader {
+        visibility: visible;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form button span.loader,
+    #fulfilNewsletterPopup form.newsletter-form.loading button span.label {
+        visibility: hidden;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form .error {
+        display: none !important;
+        visibility: hidden !important;
+        width: 100%;
+        color: #eb0029;
+        font-size: .85rem;
+        line-height: 1.2;
+        font-style: italic;
+        letter-spacing: 0.01em;
+        white-space: nowrap;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form .field-wrapper .error {
+        position: absolute;
+        bottom: -20px;
+        left: 0;
+        width: calc(100% - 10px);
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form .check-full .error {
+        float: left;
+        clear: left;
+        margin-top: -4px;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form .input-container input.input-error:not(:checked) {
+        color: #eb0029;
+        border-color: #eb0029;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form .input-container input.input-error:not(:checked):focus-visible {
+        outline-color: #eb0029;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form .input-container input.input-error ~ .error {
+        visibility: visible;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form .input-container input.input-error ~ i {
+        color: #eb0029;
+    }
+
+    #fulfilNewsletterPopup form.newsletter-form .newsletter-100 {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0;
+    }
+
+    @media (max-height: 700px) or (max-width: 300px) {
+        #fulfilNewsletterPopup .ob-popup-heading {
+            display: none;
+        }
+    }
+
+    @media (max-height: 800px) or (max-width: 350px) {
+        #fulfilNewsletterPopup .ob-popup-subheading {
+            display: none;
+        }
+    }
+
+    @media (max-height: 900px) or (max-width: 400px) {
+        #fulfilNewsletterPopup .ob-popup-logo {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 990px) {
+        #fulfilNewsletterPopup .ob-newsletter-popup-side-l {
+            width: 0;
+            height: 0;
+            display: none;
+        }
+
+        #fulfilNewsletterPopup .ob-newsletter-popup-side-r {
+            flex: 1;
+            width: 100%;
+        }
+
+        #fulfilNewsletterPopup .ob-popup-content {
+            padding: 24px;
+            width: 100%;
+            height: 100%;
+        }
+
+        #fulfilNewsletterPopup .ob-popup-heading,
+        #fulfilNewsletterPopup .ob-popup-subheading,
+        #fulfilNewsletterPopup .ob-popup-form-title {
+            line-height: 1.15;
+            margin: 10px 0;
+            padding: 0 28px;
+        }
+
+        #fulfilNewsletterPopup .ob-popup-heading {
+            font-size: 3rem;
+        }
+
+        #fulfilNewsletterPopup .ob-popup-subheading {
+            font-size: 1.5rem;
+        }
+
+        #fulfilNewsletterPopup .ob-popup-form-title {
+            font-size: 1.3rem;
+        }
+
+        #fulfilNewsletterPopup .ob-popup-logo {
+            display: none;
+        }
+
+        #fulfilNewsletterPopup form.newsletter-form .input-container label[for='optin'] {
+            font-size: 1.2rem;
+            line-height: 1.1;
+        }
+    }
+
+    @media screen and (min-width: 0) and (max-width: 990px) {
+        :root {
+            --header-nav-height: 60px;
+            --newsletter-popup-spacing: 10px;
+            --newsletter-popup-layout: column;
+        }
+    }
+
+    @media screen and (min-width: 991px) and (max-width: 1199px) {
+        :root {
+            --header-nav-height: 80px;
+            --newsletter-popup-spacing: 15px;
+            --newsletter-popup-layout: row;
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+        :root {
+            --header-nav-height: 90px;
+            --newsletter-popup-spacing: 20px;
+            --newsletter-popup-layout: row;
+        }
+    }
+
+    #fulfilNewsletterPopup .ob-newsletter-popup-inner {
+        position: absolute;
+        top: calc(var(--header-nav-height) + 50%);
+        left: 50%;
+        width: calc(100vw - (var(--newsletter-popup-spacing) * 2));
+        max-width: 900px;
+        max-height: calc(100vh - (var(--newsletter-popup-spacing) * 2) - var(--header-nav-height));
+        transform: translate(-50%, calc(-50% - (var(--header-nav-height) / 2)));
+        background: white;
+        display: flex;
+        flex-direction: var(--newsletter-popup-layout);
+        overflow: hidden;
+    }
+</style>
+
+<div id="fulfilNewsletterPopup" class="ob-newsletter-popup-container">
+    <div class="ob-newsletter-popup-inner">
+
+        <button id="fulfilNewsletterPopupClose" class="ob-popup-close-btn" aria-label="Close popup window">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="m3.426 2.024.094.083L8 6.586l4.48-4.479a1 1 0 0 1 1.497 1.32l-.083.095L9.414 8l4.48 4.478a1 1 0 0 1-1.32 1.498l-.094-.083L8 9.413l-4.48 4.48a1 1 0 0 1-1.497-1.32l.083-.095L6.585 8 2.106 3.522a1 1 0 0 1 1.32-1.498Z"></path>
+            </svg>
+        </button>
+
+        <div class="ob-newsletter-popup-side-l">
+            <img src="/content/dam/fulfil/images/home/fulfil-newsletter-popup-background.webp" alt="FULFIL Newsletter Popup Background" class="ob-popup-bg" />
+        </div>
+
+        <div class="ob-newsletter-popup-side-r">
+            <div class="ob-popup-content">
+
+                <img src="/content/dam/fulfil/images/navigation/fulfil-logo.png" alt="FULFIL Logo" class="ob-popup-logo" />
+                <h1 class="ob-popup-heading">JOIN THE FULFIL FAM</h1>
+                <p class="ob-popup-subheading">Stay up-to-date on upcoming promotions & releases!</p>
+                <h2 class="ob-popup-form-title">SIGN UP FOR OUR NEWSLETTER</h2>
+
+                <form name="FULFIL_POPUP_UAT_ProfileForm"
+                      action="https://l.livefulfil.com/u/register.php"
+                      method="get"
+                      class="newsletter-form">
+
+                    <input type=hidden name="CID" value="886327888">
+                    <input type=hidden name="SID" value="">
+                    <input type=hidden name="UID" value="">
+                    <input type=hidden name="f" value="677">
+                    <input type=hidden name="p" value="2">
+                    <input type=hidden name="a" value="r">
+                    <input type=hidden name="el" value="">
+                    <input type=hidden name="llid" value="">
+                    <input type=hidden name="c" value="">
+                    <input type=hidden name="counted" value="">
+                    <input type=hidden name="RID" value="">
+                    <input type=hidden name="mailnow" value="">
+
+                    <!-- Origin Site Source Placeholder -->
+                    <input type="hidden" name="inp_15110" value="">
+
+                    <div class="newsletter-100 field-wrapper col-xs-12 form-field col-md-12">
+                        <label for="inp_1">First Name <span class="imp">*</span></label>
+                        <div class="input-container">
+                            <input type="text" id="inp_1" name="inp_1" maxlength="60" tabindex="1" />
+                            <span class="error">Please provide your first name.</span>
+                        </div>
+                    </div>
+
+                    <div class="newsletter-100 field-wrapper col-xs-12 form-field col-md-12">
+                        <label for="inp_2">Last Name <span class="imp">*</span></label>
+                        <div class="input-container">
+                            <input type="text" id="inp_2" name="inp_2" maxlength="60" tabindex="2" />
+                            <span class="error">Please provide your last name.</span>
+                        </div>
+                    </div>
+
+                    <div class="newsletter-100 field-wrapper col-xs-12 form-field col-md-12">
+                        <label for="inp_3">Email Address <span class="imp">*</span></label>
+                        <div class="input-container">
+                            <input type="text" id="inp_3" name="inp_3" maxlength="255" tabindex="3" />
+                            <span class="error">Please provide a valid email address.</span>
+                        </div>
+                    </div>
+
+                    <fieldset class="check-full">
+                        <div class="input-container">
+                            <input type="checkbox" id="optin" name="optin" value="y" tabindex="10" autocomplete="off">
+                            <label for="optin">
+                                I'd like to receive product news, exciting offers, personalized content,
+                                services and more from The Hershey Company and its affiliates and partners,
+                                including through direct mail, digital media or digital communications.
+                                For further information, please refer to our <a
+                                    href="https://www.thehersheycompany.com/en_us/home/privacy-policy.html"
+                                    target="self"
+                                    tabindex="11"
+                                    rel="noopener noreferrer">Privacy Policy</a>
+                                <span class="imp">*</span>
+                            </label>
+                            <span class="error">Please accept the terms and conditions to continue.</span>
+                        </div>
+                    </fieldset>
+
+                    <div class="newsletter-100">
+                        <button type="submit" tabindex="12" aria-label="Subscribe">
+                            <span class="label">Subscribe</span>
+                            <span class="loader"></span>
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script language="javascript">
+    function FULFIL_POPUP_UAT_getForm() {
+        const form = document.getElementsByName('FULFIL_POPUP_UAT_ProfileForm').item(0);
+        if (form instanceof HTMLFormElement) {
+            return form;
+        }
+
+        return null;
+    }
+
+    function FULFIL_POPUP_UAT_get_inputs_by_name(name) {
+        const form = FULFIL_POPUP_UAT_getForm();
+        if (form) {
+            return form.querySelectorAll(`input[name=${name}]`);
+        }
+
+        return null;
+    }
+
+    function FULFIL_POPUP_UAT_get_input_by_name(name) {
+        const input = FULFIL_POPUP_UAT_get_inputs_by_name(name)?.item(0);
+        if (input instanceof HTMLInputElement) {
+            return input;
+        }
+
+        return null;
+    }
+
+    function FULFIL_POPUP_UAT_required_input_check(name, fullCheck = true, customValidator = null) {
+        const inputs = FULFIL_POPUP_UAT_get_inputs_by_name(name);
+        const input = FULFIL_POPUP_UAT_get_input_by_name(name);
+
+        // Fail if undefined
+        if (!inputs) return false;
+        if (!input) return false;
+
+        // Clear all error states
+        inputs.forEach((input) => {
+            input.classList.remove('input-error');
+        });
+
+        // Handle text inputs
+        if (
+            (input.type === 'text' && !input.value) ||
+            (input.type === 'email' && !input.value) ||
+            (input.type === 'password' && !input.value) ||
+            (input.type === 'tel' && !input.value) ||
+            (input.type === 'url' && !input.value) ||
+            (input.type === 'search' && !input.value)
+        ) {
+            input.classList.add('input-error');
+            return false;
+
+            // Handle radio/checkbox groups
+        } else if (
+            (input.type === 'checkbox' && !input.checked) ||
+            (input.type === 'radio' && !input.checked)
+        ) {
+
+            let atLeastOneChecked = false;
+            inputs.forEach((input) => {
+                if (input.checked) {
+                    atLeastOneChecked = true;
+                }
+            });
+
+            if (!atLeastOneChecked) {
+                inputs.forEach((input) => {
+                    input.classList.add('input-error');
+                });
+                return false;
+            }
+        }
+
+        if (!fullCheck) {
+            return true;
+        }
+
+        // Custom validation (email, phone, etc.)
+        if (customValidator && typeof customValidator === 'function') {
+            const isValid = customValidator(input.value);
+            if (!isValid) {
+                input.classList.add('input-error');
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    // https://stackoverflow.com/a/46181
+    function FULFIL_POPUP_UAT_email_validator(value) {
+        return String(value)
+            .toLowerCase()
+            .trim()
+            .match(
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            );
+    }
+
+    function FULFIL_POPUP_UAT_is_1_valid() { return FULFIL_POPUP_UAT_required_input_check('inp_1'); }
+    function FULFIL_POPUP_UAT_is_2_valid() { return FULFIL_POPUP_UAT_required_input_check('inp_2'); }
+    function FULFIL_POPUP_UAT_is_3_valid(fullCheck = true) { return FULFIL_POPUP_UAT_required_input_check('inp_3', fullCheck, FULFIL_POPUP_UAT_email_validator); }
+    function FULFIL_POPUP_UAT_is_optin_valid() {
+        const input = FULFIL_POPUP_UAT_get_input_by_name('optin');
+        if (!input) {
+            return false;
+        }
+
+        input.classList.remove('input-error');
+        if (!input.checked) {
+            input.classList.add('input-error');
+            return false;
+        }
+
+        return true;
+    }
+
+    function FULFIL_POPUP_UAT_checkInputs() {
+        let isValid = true;
+        isValid = FULFIL_POPUP_UAT_is_1_valid() && isValid; // First Name *
+        isValid = FULFIL_POPUP_UAT_is_2_valid() && isValid; // Last Name *
+        isValid = FULFIL_POPUP_UAT_is_3_valid() && isValid; // Email *
+        isValid = FULFIL_POPUP_UAT_is_optin_valid() && isValid; // Terms Checkbox *
+        return isValid;
+    }
+
+    function FULFIL_POPUP_UAT_populateHiddenFields() {
+        // Origin Site Source Placeholder
+        const inputElm = FULFIL_POPUP_UAT_get_input_by_name('inp_15110');
+        if (inputElm) {
+            const urlParams = new URLSearchParams(window.location.search);
+            const newsbkg = urlParams.get('newsbkg');
+            inputElm.value = (newsbkg && newsbkg.length > 0 && inputElm.value.length === 0) ? newsbkg : 'hersheyglobal';
+        }
+    }
+
+    function FULFIL_POPUP_UAT_submitForm() {
+        const form = FULFIL_POPUP_UAT_getForm();
+        if (form) {
+            form.classList.add('loading');
+            FULFIL_POPUP_UAT_populateHiddenFields();
+            const data = new FormData(form);
+            const dataObject = Object.fromEntries(data);
+            const urlParams = new URLSearchParams(dataObject).toString();
+            const url = `${form.action}?${urlParams}`;
+            FULFIL_POPUP_UAT_disableFormInputs();
+            fetch(url, {
+                method: form.method,
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            }).then(() => {
+                FULFIL_POPUP_UAT_onSubmitComplete();
+            }).catch(error => {
+                FULFIL_POPUP_UAT_enableFormInputs();
+                FULFIL_POPUP_UAT_onSubmitError(error);
+            }).finally(() => {
+                form.classList.remove('loading');
+            });
+        }
+    }
+
+    function FULFIL_POPUP_UAT_enableFormInputs() {
+        const form = FULFIL_POPUP_UAT_getForm();
+        if (form) {
+            const elements = form.elements;
+            for (let i = 0; i < elements.length; i++) {
+                elements[i].disabled = false;
+            }
+        }
+    }
+
+    function FULFIL_POPUP_UAT_disableFormInputs() {
+        const form = FULFIL_POPUP_UAT_getForm();
+        if (form) {
+            const elements = form.elements;
+            for (let i = 0; i < elements.length; i++) {
+                elements[i].disabled = true;
+            }
+        }
+    }
+
+    function FULFIL_POPUP_UAT_onSubmitComplete() {
+        closePopup();
+        setPopupDismissed();
+    }
+
+    function FULFIL_POPUP_UAT_onSubmitError(error) {
+        console.error('Form submission failed:', error);
+    }
+
+    function FULFIL_POPUP_UAT_checkLocalStorage() {
+        const value = localStorage.getItem('email');
+        if (value) {
+            const input = FULFIL_POPUP_UAT_get_input_by_name('inp_3');
+            if (input) {
+                input.value = value;
+            }
+        }
+    }
+
+    function FULFIL_POPUP_UAT_bindFormSubmitEvent() {
+        const form = FULFIL_POPUP_UAT_getForm();
+        if (form) {
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                event.stopImmediatePropagation();
+                if (FULFIL_POPUP_UAT_checkInputs()) {
+                    FULFIL_POPUP_UAT_submitForm(form);
+                }
+            });
+        }
+    }
+
+    function FULFIL_POPUP_UAT_bindInputChangeEvents() {
+        let previousValues = [];
+
+        const form = FULFIL_POPUP_UAT_getForm();
+        const inputs = form?.getElementsByTagName('input') || [];
+        for (let i = 0; i < inputs.length; i++) {
+            const input = inputs[i];
+            if (!input || input.type === 'hidden') {
+                continue;
+            }
+
+            input.addEventListener('focus', (event) => {
+                previousValues[i] = event.target.value;
+            });
+
+            input.addEventListener('keyup', (event) => {
+                const hasError = event.target.classList.contains('input-error');
+                const currentValue = event.target.value;
+                const previousValue = previousValues[i];
+                const valueChanged = currentValue !== previousValue;
+                if (valueChanged || hasError) {
+                    switch (event.target.name) {
+                        case 'inp_1': FULFIL_POPUP_UAT_is_1_valid(); break;
+                        case 'inp_2': FULFIL_POPUP_UAT_is_2_valid(); break;
+                        case 'inp_3': FULFIL_POPUP_UAT_is_3_valid(hasError); break;
+                    }
+                }
+            });
+
+            input.addEventListener('change', (event) => {
+                switch (event.target.name) {
+                    case 'inp_1': FULFIL_POPUP_UAT_is_1_valid(); break;
+                    case 'inp_2': FULFIL_POPUP_UAT_is_2_valid(); break;
+                    case 'inp_3': FULFIL_POPUP_UAT_is_3_valid(); break;
+                }
+            });
+        }
+    }
+
+    function FULFIL_POPUP_UAT_init() {
+        FULFIL_POPUP_UAT_checkLocalStorage();
+        FULFIL_POPUP_UAT_bindFormSubmitEvent();
+        FULFIL_POPUP_UAT_bindInputChangeEvents();
+    }
+
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', FULFIL_POPUP_UAT_init);
+    else FULFIL_POPUP_UAT_init();
+</script>
+
+<script language="javascript">
+    let multiFields = [];
+    let dateFields = [];
+    window.multiFields = multiFields;
+    window.dateFields = dateFields;
+</script>
+
+<script language="javascript" src="https://l.hersheys.com/u/nprefill.js"></script>
+<script language="javascript">
+    // see: https://l.hersheys.com/u/nprefill.js
+    if (typeof window['preFill'] === 'function') {
+        window['preFill']();
+    }
+</script>
+
+<script language="javascript">
+    function initCloseButton() {
+        const fulfilNewsletterPopupClose = document.getElementById('fulfilNewsletterPopupClose');
+        if (fulfilNewsletterPopupClose instanceof HTMLButtonElement) {
+            fulfilNewsletterPopupClose.addEventListener('click', (event) => {
+                closePopup();
+                setPopupDismissed();
+            });
+        }
+    }
+
+    const onScrollThreshold = (threshold, callback) => {
+        let fired = false;
+        window.addEventListener('scroll', () => {
+            if (!fired && window.scrollY >= threshold) {
+                fired = true;
+                callback();
+            }
+        }, { passive: true });
+    };
+
+    const POPUP_COOKIE = 'fulfil_newsletter_popup_dismissed';
+
+    const setPopupDismissed = () => {
+        const expires = new Date();
+        expires.setDate(expires.getDate() + 30); // 30 days
+        document.cookie = `${POPUP_COOKIE}=1; expires=${expires.toUTCString()}; path=/`;
+    };
+
+    const isPopupDismissed = () => {
+        return document.cookie.split(';').some(c => c.trim().startsWith(`${POPUP_COOKIE}=`));
+    };
+
+    const closePopup = () => {
+        document.body.classList.remove('ob-newsletter-popup-open');
+        const fulfilNewsletterPopup = document.getElementById('fulfilNewsletterPopup');
+        if (fulfilNewsletterPopup instanceof HTMLElement) {
+            fulfilNewsletterPopup.classList.add('hide');
+            fulfilNewsletterPopup.classList.remove('show-popup-now');
+            fulfilNewsletterPopup.style.display = 'none';
+        }
+    };
+
+    const openPopup = () => {
+        document.body.classList.add('ob-newsletter-popup-open');
+        const fulfilNewsletterPopup = document.getElementById('fulfilNewsletterPopup');
+        if (fulfilNewsletterPopup instanceof HTMLElement) {
+            fulfilNewsletterPopup.classList.add('show-popup-now');
+            fulfilNewsletterPopup.classList.remove('hide');
+            fulfilNewsletterPopup.style.display = 'block';
+        }
+    };
+
+    onScrollThreshold(1000, () => {
+        setTimeout(() => {
+            if (isPopupDismissed()) {
+                console.log('Popup was dismissed, do not show.');
+                closePopup();
+            } else {
+                // do not show popup on subscribe page
+                console.log('Do not show popup on subscribe page.');
+                if (window.location.href.includes('contact-us/subscribe.html') !== true) {
+                    openPopup();
+                }
+            }
+        }, 1000);
+    });
+
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initCloseButton);
+    else initCloseButton();
+</script>
