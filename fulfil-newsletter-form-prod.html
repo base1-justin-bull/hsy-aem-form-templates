@@ -538,7 +538,7 @@
                 <h1 class="newsletter-form-header">Join the World of FULFIL</h1>
                 <p class="newsletter-form-subheader">Sign up to receive insider news & promotions.</p>
 
-                <form name="FULFIL_EMBEDED_UAT_ProfileForm"
+                <form name="FULFIL_EMBEDED_PROD_ProfileForm"
                       action="https://l.livefulfil.com/u/register.php"
                       method="get"
                       class="newsletter-form">
@@ -623,8 +623,8 @@
 </div>
 
 <script language="javascript">
-    function FULFIL_EMBEDED_UAT_getForm() {
-        const form = document.getElementsByName('FULFIL_EMBEDED_UAT_ProfileForm').item(0);
+    function FULFIL_EMBEDED_PROD_getForm() {
+        const form = document.getElementsByName('FULFIL_EMBEDED_PROD_ProfileForm').item(0);
         if (form instanceof HTMLFormElement) {
             return form;
         }
@@ -632,8 +632,8 @@
         return null;
     }
 
-    function FULFIL_EMBEDED_UAT_get_inputs_by_name(name) {
-        const form = FULFIL_EMBEDED_UAT_getForm();
+    function FULFIL_EMBEDED_PROD_get_inputs_by_name(name) {
+        const form = FULFIL_EMBEDED_PROD_getForm();
         if (form) {
             return form.querySelectorAll(`input[name=${name}]`);
         }
@@ -641,8 +641,8 @@
         return null;
     }
 
-    function FULFIL_EMBEDED_UAT_get_input_by_name(name) {
-        const input = FULFIL_EMBEDED_UAT_get_inputs_by_name(name)?.item(0);
+    function FULFIL_EMBEDED_PROD_get_input_by_name(name) {
+        const input = FULFIL_EMBEDED_PROD_get_inputs_by_name(name)?.item(0);
         if (input instanceof HTMLInputElement) {
             return input;
         }
@@ -650,9 +650,9 @@
         return null;
     }
 
-    function FULFIL_EMBEDED_UAT_required_input_check(name, fullCheck = true, customValidator = null) {
-        const inputs = FULFIL_EMBEDED_UAT_get_inputs_by_name(name);
-        const input = FULFIL_EMBEDED_UAT_get_input_by_name(name);
+    function FULFIL_EMBEDED_PROD_required_input_check(name, fullCheck = true, customValidator = null) {
+        const inputs = FULFIL_EMBEDED_PROD_get_inputs_by_name(name);
+        const input = FULFIL_EMBEDED_PROD_get_input_by_name(name);
 
         // Fail if undefined
         if (!inputs) return false;
@@ -713,7 +713,7 @@
     }
 
     // https://stackoverflow.com/a/46181
-    function FULFIL_EMBEDED_UAT_email_validator(value) {
+    function FULFIL_EMBEDED_PROD_email_validator(value) {
         return String(value)
             .toLowerCase()
             .trim()
@@ -722,20 +722,20 @@
             );
     }
 
-    function FULFIL_EMBEDED_UAT_is_1_valid() {
-        return FULFIL_EMBEDED_UAT_required_input_check('inp_1');
+    function FULFIL_EMBEDED_PROD_is_1_valid() {
+        return FULFIL_EMBEDED_PROD_required_input_check('inp_1');
     }
 
-    function FULFIL_EMBEDED_UAT_is_2_valid() {
-        return FULFIL_EMBEDED_UAT_required_input_check('inp_2');
+    function FULFIL_EMBEDED_PROD_is_2_valid() {
+        return FULFIL_EMBEDED_PROD_required_input_check('inp_2');
     }
 
-    function FULFIL_EMBEDED_UAT_is_3_valid(fullCheck = true) {
-        return FULFIL_EMBEDED_UAT_required_input_check('inp_3', fullCheck, FULFIL_EMBEDED_UAT_email_validator);
+    function FULFIL_EMBEDED_PROD_is_3_valid(fullCheck = true) {
+        return FULFIL_EMBEDED_PROD_required_input_check('inp_3', fullCheck, FULFIL_EMBEDED_PROD_email_validator);
     }
 
-    function FULFIL_EMBEDED_UAT_is_optin_valid() {
-        const input = FULFIL_EMBEDED_UAT_get_input_by_name('optin');
+    function FULFIL_EMBEDED_PROD_is_optin_valid() {
+        const input = FULFIL_EMBEDED_PROD_get_input_by_name('optin');
         if (!input) {
             return false;
         }
@@ -749,18 +749,18 @@
         return true;
     }
 
-    function FULFIL_EMBEDED_UAT_checkInputs() {
+    function FULFIL_EMBEDED_PROD_checkInputs() {
         let isValid = true;
-        isValid = FULFIL_EMBEDED_UAT_is_1_valid() && isValid; // First Name *
-        isValid = FULFIL_EMBEDED_UAT_is_2_valid() && isValid; // Last Name *
-        isValid = FULFIL_EMBEDED_UAT_is_3_valid() && isValid; // Email *
-        isValid = FULFIL_EMBEDED_UAT_is_optin_valid() && isValid; // Terms Checkbox *
+        isValid = FULFIL_EMBEDED_PROD_is_1_valid() && isValid; // First Name *
+        isValid = FULFIL_EMBEDED_PROD_is_2_valid() && isValid; // Last Name *
+        isValid = FULFIL_EMBEDED_PROD_is_3_valid() && isValid; // Email *
+        isValid = FULFIL_EMBEDED_PROD_is_optin_valid() && isValid; // Terms Checkbox *
         return isValid;
     }
 
-    function FULFIL_EMBEDED_UAT_populateHiddenFields() {
+    function FULFIL_EMBEDED_PROD_populateHiddenFields() {
         // Origin Site Source Placeholder
-        const inputElm = FULFIL_EMBEDED_UAT_get_input_by_name('inp_15110');
+        const inputElm = FULFIL_EMBEDED_PROD_get_input_by_name('inp_15110');
         if (inputElm) {
             const urlParams = new URLSearchParams(window.location.search);
             const newsbkg = urlParams.get('newsbkg');
@@ -768,16 +768,16 @@
         }
     }
 
-    function FULFIL_EMBEDED_UAT_submitForm() {
-        const form = FULFIL_EMBEDED_UAT_getForm();
+    function FULFIL_EMBEDED_PROD_submitForm() {
+        const form = FULFIL_EMBEDED_PROD_getForm();
         if (form) {
             form.classList.add('loading');
-            FULFIL_EMBEDED_UAT_populateHiddenFields();
+            FULFIL_EMBEDED_PROD_populateHiddenFields();
             const data = new FormData(form);
             const dataObject = Object.fromEntries(data);
             const urlParams = new URLSearchParams(dataObject).toString();
             const url = `${form.action}?${urlParams}`;
-            FULFIL_EMBEDED_UAT_disableFormInputs();
+            FULFIL_EMBEDED_PROD_disableFormInputs();
             fetch(url, {
                 method: form.method,
                 mode: 'no-cors',
@@ -785,20 +785,20 @@
                     'Content-Type': 'multipart/form-data',
                 },
             }).then(() => {
-                FULFIL_EMBEDED_UAT_scrollToFormTop();
+                FULFIL_EMBEDED_PROD_scrollToFormTop();
                 setTimeout(() => {
-                    FULFIL_EMBEDED_UAT_onSubmitComplete();
+                    FULFIL_EMBEDED_PROD_onSubmitComplete();
                 }, 500);
             }).catch(error => {
-                FULFIL_EMBEDED_UAT_enableFormInputs();
-                FULFIL_EMBEDED_UAT_onSubmitError(error);
+                FULFIL_EMBEDED_PROD_enableFormInputs();
+                FULFIL_EMBEDED_PROD_onSubmitError(error);
             }).finally(() => {
                 form.classList.remove('loading');
             });
         }
     }
 
-    function FULFIL_EMBEDED_UAT_getOffsetTop(element) {
+    function FULFIL_EMBEDED_PROD_getOffsetTop(element) {
         let offsetTop = 0;
         while (element) {
             offsetTop += element.offsetTop;
@@ -811,9 +811,9 @@
         return offsetTop;
     }
 
-    function FULFIL_EMBEDED_UAT_scrollToFormTop() {
+    function FULFIL_EMBEDED_PROD_scrollToFormTop() {
         const formContainer = document.getElementById('newsletter_register_form');
-        let offset = FULFIL_EMBEDED_UAT_getOffsetTop(formContainer) - 50;
+        let offset = FULFIL_EMBEDED_PROD_getOffsetTop(formContainer) - 50;
         if (offset < 0) offset = 0;
         window.scrollTo({
             top: offset,
@@ -821,23 +821,23 @@
         });
     }
 
-    function FULFIL_EMBEDED_UAT_scrollToFirstInputError() {
-        const form = FULFIL_EMBEDED_UAT_getForm();
+    function FULFIL_EMBEDED_PROD_scrollToFirstInputError() {
+        const form = FULFIL_EMBEDED_PROD_getForm();
         if (form) {
             const elements = form.querySelectorAll('input.input-error');
             if (elements.length > 0) {
                 const element = elements.item(0);
                 element.focus();
                 window.scrollTo({
-                    top: FULFIL_EMBEDED_UAT_getOffsetTop(element),
+                    top: FULFIL_EMBEDED_PROD_getOffsetTop(element),
                     behavior: 'smooth',
                 });
             }
         }
     }
 
-    function FULFIL_EMBEDED_UAT_enableFormInputs() {
-        const form = FULFIL_EMBEDED_UAT_getForm();
+    function FULFIL_EMBEDED_PROD_enableFormInputs() {
+        const form = FULFIL_EMBEDED_PROD_getForm();
         if (form) {
             const elements = form.elements;
             for (let i = 0; i < elements.length; i++) {
@@ -846,8 +846,8 @@
         }
     }
 
-    function FULFIL_EMBEDED_UAT_disableFormInputs() {
-        const form = FULFIL_EMBEDED_UAT_getForm();
+    function FULFIL_EMBEDED_PROD_disableFormInputs() {
+        const form = FULFIL_EMBEDED_PROD_getForm();
         if (form) {
             const elements = form.elements;
             for (let i = 0; i < elements.length; i++) {
@@ -856,42 +856,42 @@
         }
     }
 
-    function FULFIL_EMBEDED_UAT_onSubmitComplete() {
+    function FULFIL_EMBEDED_PROD_onSubmitComplete() {
         document.getElementById('newsletter_register_form').classList.add('hide');
         document.getElementById('newsletter_thank_you_page').classList.remove('hide');
     }
 
-    function FULFIL_EMBEDED_UAT_onSubmitError(error) {
+    function FULFIL_EMBEDED_PROD_onSubmitError(error) {
         console.error('Form submission failed:', error);
     }
 
-    function FULFIL_EMBEDED_UAT_checkLocalStorage() {
+    function FULFIL_EMBEDED_PROD_checkLocalStorage() {
         const value = localStorage.getItem('email');
         if (value) {
-            const input = FULFIL_EMBEDED_UAT_get_input_by_name('inp_3');
+            const input = FULFIL_EMBEDED_PROD_get_input_by_name('inp_3');
             if (input) {
                 input.value = value;
             }
         }
     }
 
-    function FULFIL_EMBEDED_UAT_bindFormSubmitEvent() {
-        const form = FULFIL_EMBEDED_UAT_getForm();
+    function FULFIL_EMBEDED_PROD_bindFormSubmitEvent() {
+        const form = FULFIL_EMBEDED_PROD_getForm();
         if (form) {
             form.addEventListener('submit', function (event) {
                 event.preventDefault();
                 event.stopPropagation();
                 event.stopImmediatePropagation();
-                if (FULFIL_EMBEDED_UAT_checkInputs()) FULFIL_EMBEDED_UAT_submitForm(form);
-                else FULFIL_EMBEDED_UAT_scrollToFirstInputError();
+                if (FULFIL_EMBEDED_PROD_checkInputs()) FULFIL_EMBEDED_PROD_submitForm(form);
+                else FULFIL_EMBEDED_PROD_scrollToFirstInputError();
             });
         }
     }
 
-    function FULFIL_EMBEDED_UAT_bindInputChangeEvents() {
+    function FULFIL_EMBEDED_PROD_bindInputChangeEvents() {
         let previousValues = [];
 
-        const form = FULFIL_EMBEDED_UAT_getForm();
+        const form = FULFIL_EMBEDED_PROD_getForm();
         const inputs = form?.getElementsByTagName('input') || [];
         for (let i = 0; i < inputs.length; i++) {
             const input = inputs[i];
@@ -911,13 +911,13 @@
                 if (valueChanged || hasError) {
                     switch (event.target.name) {
                         case 'inp_1':
-                            FULFIL_EMBEDED_UAT_is_1_valid();
+                            FULFIL_EMBEDED_PROD_is_1_valid();
                             break;
                         case 'inp_2':
-                            FULFIL_EMBEDED_UAT_is_2_valid();
+                            FULFIL_EMBEDED_PROD_is_2_valid();
                             break;
                         case 'inp_3':
-                            FULFIL_EMBEDED_UAT_is_3_valid(hasError);
+                            FULFIL_EMBEDED_PROD_is_3_valid(hasError);
                             break;
                     }
                 }
@@ -926,27 +926,27 @@
             input.addEventListener('change', (event) => {
                 switch (event.target.name) {
                     case 'inp_1':
-                        FULFIL_EMBEDED_UAT_is_1_valid();
+                        FULFIL_EMBEDED_PROD_is_1_valid();
                         break;
                     case 'inp_2':
-                        FULFIL_EMBEDED_UAT_is_2_valid();
+                        FULFIL_EMBEDED_PROD_is_2_valid();
                         break;
                     case 'inp_3':
-                        FULFIL_EMBEDED_UAT_is_3_valid();
+                        FULFIL_EMBEDED_PROD_is_3_valid();
                         break;
                 }
             });
         }
     }
 
-    function FULFIL_EMBEDED_UAT_init() {
-        FULFIL_EMBEDED_UAT_checkLocalStorage();
-        FULFIL_EMBEDED_UAT_bindFormSubmitEvent();
-        FULFIL_EMBEDED_UAT_bindInputChangeEvents();
+    function FULFIL_EMBEDED_PROD_init() {
+        FULFIL_EMBEDED_PROD_checkLocalStorage();
+        FULFIL_EMBEDED_PROD_bindFormSubmitEvent();
+        FULFIL_EMBEDED_PROD_bindInputChangeEvents();
     }
 
-    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', FULFIL_EMBEDED_UAT_init);
-    else FULFIL_EMBEDED_UAT_init();
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', FULFIL_EMBEDED_PROD_init);
+    else FULFIL_EMBEDED_PROD_init();
 </script>
 
 <script language="javascript">
