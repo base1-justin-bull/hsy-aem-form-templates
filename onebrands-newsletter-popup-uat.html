@@ -312,6 +312,8 @@
         border: 0;
         margin: 0 0 20px 0;
         padding: 0;
+        min-width: auto;
+        width: 100%;
     }
 
     #obNewsletterPopup form.newsletter-form fieldset.check-full legend {
@@ -644,7 +646,7 @@
         </button>
 
         <div class="ob-newsletter-popup-side-l">
-            <img src="/content/dam/one-brands/images/home/one-co-brand-email-signup.webp" alt="ONE Brands Newsletter Popup Background" class="ob-popup-bg" />
+            <img src="/content/dam/one-brands/images/home/one-co-brand-email-signup.jpg" alt="ONE Brands Newsletter Popup Background" class="ob-popup-bg" />
         </div>
 
         <div class="ob-newsletter-popup-side-r">
@@ -1038,7 +1040,7 @@
         }, { passive: true });
     };
 
-    const POPUP_COOKIE = 'ob_newsletter_popup_dismissed';
+    const POPUP_COOKIE = 'ONEBRANDS_POPUP_UAT_DISMISSED';
 
     const setPopupDismissed = () => {
         const expires = new Date();

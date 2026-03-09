@@ -255,6 +255,21 @@
         display: none !important;
     }
 
+    #fulfilNewsletterPopup .field-droid-outer {
+        width: 0;
+        height: 0;
+        opacity: 0;
+        overflow: hidden;
+        position: relative;
+        pointer-events: none;
+    }
+
+    #fulfilNewsletterPopup .field-droid-inner {
+        position: absolute;
+        top: 100%;
+        left: 100%;
+    }
+
     #fulfilNewsletterPopup form.newsletter-form  {
         position: relative;
         text-align: left;
@@ -312,6 +327,8 @@
         border: 0;
         margin: 0 0 20px 0;
         padding: 0;
+        min-width: auto;
+        width: 100%;
     }
 
     #fulfilNewsletterPopup form.newsletter-form fieldset.check-full legend {
@@ -680,6 +697,14 @@
                     <!-- Origin Site Source Placeholder -->
                     <input type="hidden" name="inp_15110" value="">
 
+                    <!-- These aren't the droids you're looking for -->
+                    <div class="field-droid-outer" aria-hidden="true">
+                        <div class="field-droid-inner">
+                            <label for="inp_15104">Phone Number</label>
+                            <input type="text" id="inp_15104" name="inp_15104" tabindex="-1" autocomplete="off" />
+                        </div>
+                    </div>
+
                     <div class="newsletter-100 field-wrapper col-xs-12 form-field col-md-12">
                         <label for="inp_1">First Name <span class="imp">*</span></label>
                         <div class="input-container">
@@ -1039,7 +1064,7 @@
         }, { passive: true });
     };
 
-    const POPUP_COOKIE = 'fulfil_newsletter_popup_dismissed';
+    const POPUP_COOKIE = 'FULFIL_POPUP_PROD_DISMISSED';
 
     const setPopupDismissed = () => {
         const expires = new Date();

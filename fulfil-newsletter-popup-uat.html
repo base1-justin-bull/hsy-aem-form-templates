@@ -312,6 +312,8 @@
         border: 0;
         margin: 0 0 20px 0;
         padding: 0;
+        min-width: auto;
+        width: 100%;
     }
 
     #fulfilNewsletterPopup form.newsletter-form fieldset.check-full legend {
@@ -1039,7 +1041,7 @@
         }, { passive: true });
     };
 
-    const POPUP_COOKIE = 'fulfil_newsletter_popup_dismissed';
+    const POPUP_COOKIE = 'FULFIL_POPUP_UAT_DISMISSED';
 
     const setPopupDismissed = () => {
         const expires = new Date();

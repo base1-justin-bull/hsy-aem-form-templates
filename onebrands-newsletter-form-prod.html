@@ -43,6 +43,21 @@
         display: none !important;
     }
 
+    .field-droid-outer {
+        width: 0;
+        height: 0;
+        opacity: 0;
+        overflow: hidden;
+        position: relative;
+        pointer-events: none;
+    }
+
+    .field-droid-inner {
+        position: absolute;
+        top: 100%;
+        left: 100%;
+    }
+
     #newsletter {
         display: block !important;
     }
@@ -562,6 +577,14 @@
 
                     <!-- Origin Site Source Placeholder -->
                     <input type="hidden" name="inp_15090" value="">
+
+                    <!-- These aren't the droids you're looking for -->
+                    <div class="field-droid-outer" aria-hidden="true">
+                        <div class="field-droid-inner">
+                            <label for="inp_15091">Phone Number</label>
+                            <input type="text" id="inp_15091" name="inp_15091" tabindex="-1" autocomplete="off" />
+                        </div>
+                    </div>
 
                     <div class="newsletter-100">
                         <div class="newsletter-50 field-wrapper col-md-6 col-xs-12 form-field">
