@@ -1079,8 +1079,10 @@
                 closePopup();
             } else {
                 // do not show popup on subscribe page
-                console.log('Do not show popup on subscribe page.');
-                if (window.location.href.includes('contact-us/subscribe.html') !== true) {
+                if (window.location.href.includes('contact-us/subscribe.html') === true) {
+                    console.log('Do not show popup on subscribe page.');
+                } else {
+                    console.log('Open newsletter popup on page: ' + window.location.href);
                     openPopup();
                 }
             }
